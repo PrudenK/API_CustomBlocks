@@ -54,10 +54,20 @@ class PartidaController extends AbstractController
 
         $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $idJugador]);
 
-        $partidas = $partidaRepo->findBy([
-            "modo" => $modo,
-            "jugador" => $jugador
-        ]);
+        if ($modo === "Todos") {
+            $query = $entityManager->createQuery(
+                'SELECT p FROM App\Entity\Partida p WHERE p.jugador = :jugador AND p.modo != :modoCustom'
+            )->setParameter('jugador', $jugador)
+                ->setParameter('modoCustom', 'Custom');
+
+            $partidas = $query->getResult();
+        } else {
+            // Si el modo es específico, buscar por ese modo
+            $partidas = $partidaRepo->findBy([
+                "modo" => $modo,
+                "jugador" => $jugador
+            ]);
+        }
 
         $maxNivel = 0;
         $maxLineas = 0;
@@ -66,6 +76,7 @@ class PartidaController extends AbstractController
         $lineasSum = 0;
         $puntuacionesSum = 0;
         $tiempoTotalSegundos = 0;
+        $totalPartidas = 0;
 
         foreach ($partidas as $partida) {
             $maxNivel = max($maxNivel, $partida->getNivel());
@@ -78,6 +89,7 @@ class PartidaController extends AbstractController
 
             list($horas, $minutos, $segundos) = explode(":", $partida->getTiempo());
             $tiempoTotalSegundos += ($horas * 3600) + ($minutos * 60) + $segundos;
+            $totalPartidas +=1;
         }
 
         $tiempoTotal = gmdate("H:i:s", $tiempoTotalSegundos);
@@ -89,7 +101,8 @@ class PartidaController extends AbstractController
             "maxTiempo" => $maxTiempo,
             "lineasSum" => $lineasSum,
             "puntuacionesSum" => $puntuacionesSum,
-            "tiempoTotal" => $tiempoTotal
+            "tiempoTotal" => $tiempoTotal,
+            "totalDePartidas" => $totalPartidas,
         ];
 
         return new JsonResponse($response, Response::HTTP_OK);
