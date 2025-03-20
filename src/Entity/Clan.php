@@ -1,8 +1,9 @@
 <?php
 
-
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Clan
@@ -18,6 +19,7 @@ class Clan
      * @ORM\Column(name="idClan", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups ("clan")
      */
     private $idclan;
 
@@ -25,6 +27,7 @@ class Clan
      * @var string|null
      *
      * @ORM\Column(name="nombre", type="string", length=100, nullable=true)
+     * @Groups ("clan")
      */
     private $nombre;
 
@@ -32,32 +35,35 @@ class Clan
      * @var \DateTime|null
      *
      * @ORM\Column(name="fechaini", type="date", nullable=true)
+     * @Groups ("clan")
      */
     private $fechaini;
 
     /**
-     * @var \Jugador
+     * @var Jugador
      *
      * @ORM\ManyToOne(targetEntity="Jugador")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idLider", referencedColumnName="id")
      * })
+     * @Groups ("clan_lider")
      */
     private $idlider;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Jugador", mappedBy="idclan")
+     * @ORM\OneToMany(targetEntity="Jugador", mappedBy="clan")
+     * @Groups ("clan_jugadores")
      */
-    private $idjugador = array();
+    private $jugadores = array();
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->idjugador = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->jugadores = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 }

@@ -53,7 +53,7 @@ CREATE TABLE partida (
      puntuacion INT,
      tiempo VARCHAR(50),
      lineas INT,
-     fechaJuego DATETIME,
+     fechaJuego varchar(50),
      FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE
 );
 

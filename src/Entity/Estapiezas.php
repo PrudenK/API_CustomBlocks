@@ -1,8 +1,9 @@
 <?php
 
-
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Estapiezas
@@ -16,6 +17,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numO", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numo;
 
@@ -23,6 +25,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numI", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numi;
 
@@ -30,6 +33,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numL", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numl;
 
@@ -37,6 +41,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numZ", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numz;
 
@@ -44,6 +49,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numJ", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numj;
 
@@ -51,6 +57,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numS", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $nums;
 
@@ -58,6 +65,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numT", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numt;
 
@@ -65,6 +73,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numP", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $nump;
 
@@ -72,6 +81,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numX", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numx;
 
@@ -79,6 +89,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numU", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numu;
 
@@ -86,6 +97,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numLv2", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numlv2;
 
@@ -93,6 +105,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numW", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numw;
 
@@ -100,6 +113,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numTv2", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numtv2;
 
@@ -107,6 +121,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numZv2", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numzv2;
 
@@ -114,6 +129,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numXv2", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numxv2;
 
@@ -121,6 +137,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numLv3", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numlv3;
 
@@ -128,6 +145,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numF", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numf;
 
@@ -135,6 +153,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numOv2", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numov2;
 
@@ -142,6 +161,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numSv2", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numsv2;
 
@@ -149,6 +169,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numB", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numb;
 
@@ -156,6 +177,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numY", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numy;
 
@@ -163,6 +185,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numK", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numk;
 
@@ -170,6 +193,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numIv2", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numiv2;
 
@@ -177,6 +201,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numC", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numc;
 
@@ -184,6 +209,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numOv3", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numov3;
 
@@ -191,6 +217,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numV", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numv;
 
@@ -198,6 +225,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numH", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numh;
 
@@ -205,6 +233,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numIv3", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numiv3;
 
@@ -212,6 +241,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numYv2", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numyv2;
 
@@ -219,6 +249,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numOv4", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numov4;
 
@@ -226,6 +257,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numJv2", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numjv2;
 
@@ -233,6 +265,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numA", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numa;
 
@@ -240,6 +273,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numMiniI", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numminii;
 
@@ -247,6 +281,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numMiniIv2", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numminiiv2;
 
@@ -254,6 +289,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numMiniL", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numminil;
 
@@ -261,6 +297,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numMiniO", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numminio;
 
@@ -268,6 +305,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numOv5", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numov5;
 
@@ -275,6 +313,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numOv6", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numov6;
 
@@ -282,6 +321,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numXv3", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numxv3;
 
@@ -289,6 +329,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numE", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $nume;
 
@@ -296,6 +337,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numTwinO", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numtwino;
 
@@ -303,6 +345,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numTwinY", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numtwiny;
 
@@ -310,6 +353,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numPickAxe", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numpickaxe;
 
@@ -317,6 +361,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numSv3", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numsv3;
 
@@ -324,6 +369,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numTwinOv2", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numtwinov2;
 
@@ -331,6 +377,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numZv3", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numzv3;
 
@@ -338,6 +385,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numLadder", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numladder;
 
@@ -345,6 +393,7 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="numHv2", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $numhv2;
 
@@ -352,11 +401,12 @@ class Estapiezas
      * @var int|null
      *
      * @ORM\Column(name="total", type="integer", nullable=true)
+     * @Groups ("estaPiezas")
      */
     private $total;
 
     /**
-     * @var \Jugador
+     * @var Jugador
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
@@ -364,6 +414,7 @@ class Estapiezas
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idJugador", referencedColumnName="id")
      * })
+     * @Groups ("estaPiezas_jugador")
      */
     private $idjugador;
 
