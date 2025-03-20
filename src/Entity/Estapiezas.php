@@ -19,7 +19,7 @@ class Estapiezas
      * @ORM\Column(name="numO", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numo;
+    private $numO;
 
     /**
      * @var int|null
@@ -27,7 +27,7 @@ class Estapiezas
      * @ORM\Column(name="numI", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numi;
+    private $numI;
 
     /**
      * @var int|null
@@ -35,7 +35,7 @@ class Estapiezas
      * @ORM\Column(name="numL", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numl;
+    private $numL;
 
     /**
      * @var int|null
@@ -43,7 +43,7 @@ class Estapiezas
      * @ORM\Column(name="numZ", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numz;
+    private $numZ;
 
     /**
      * @var int|null
@@ -51,7 +51,7 @@ class Estapiezas
      * @ORM\Column(name="numJ", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numj;
+    private $numJ;
 
     /**
      * @var int|null
@@ -59,7 +59,7 @@ class Estapiezas
      * @ORM\Column(name="numS", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $nums;
+    private $numS;
 
     /**
      * @var int|null
@@ -67,7 +67,7 @@ class Estapiezas
      * @ORM\Column(name="numT", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numt;
+    private $numT;
 
     /**
      * @var int|null
@@ -75,7 +75,7 @@ class Estapiezas
      * @ORM\Column(name="numP", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $nump;
+    private $numP;
 
     /**
      * @var int|null
@@ -83,7 +83,7 @@ class Estapiezas
      * @ORM\Column(name="numX", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numx;
+    private $numX;
 
     /**
      * @var int|null
@@ -91,7 +91,7 @@ class Estapiezas
      * @ORM\Column(name="numU", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numu;
+    private $numU;
 
     /**
      * @var int|null
@@ -99,7 +99,7 @@ class Estapiezas
      * @ORM\Column(name="numLv2", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numlv2;
+    private $numLv2;
 
     /**
      * @var int|null
@@ -107,7 +107,7 @@ class Estapiezas
      * @ORM\Column(name="numW", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numw;
+    private $numW;
 
     /**
      * @var int|null
@@ -115,7 +115,7 @@ class Estapiezas
      * @ORM\Column(name="numTv2", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numtv2;
+    private $numTv2;
 
     /**
      * @var int|null
@@ -123,7 +123,7 @@ class Estapiezas
      * @ORM\Column(name="numZv2", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numzv2;
+    private $numZv2;
 
     /**
      * @var int|null
@@ -131,7 +131,7 @@ class Estapiezas
      * @ORM\Column(name="numXv2", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numxv2;
+    private $numXv2;
 
     /**
      * @var int|null
@@ -139,7 +139,7 @@ class Estapiezas
      * @ORM\Column(name="numLv3", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numlv3;
+    private $numLv3;
 
     /**
      * @var int|null
@@ -147,7 +147,7 @@ class Estapiezas
      * @ORM\Column(name="numF", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numf;
+    private $numF;
 
     /**
      * @var int|null
@@ -155,7 +155,7 @@ class Estapiezas
      * @ORM\Column(name="numOv2", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numov2;
+    private $numOv2;
 
     /**
      * @var int|null
@@ -163,7 +163,7 @@ class Estapiezas
      * @ORM\Column(name="numSv2", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numsv2;
+    private $numSv2;
 
     /**
      * @var int|null
@@ -171,7 +171,7 @@ class Estapiezas
      * @ORM\Column(name="numB", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numb;
+    private $numB;
 
     /**
      * @var int|null
@@ -179,7 +179,7 @@ class Estapiezas
      * @ORM\Column(name="numY", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numy;
+    private $numY;
 
     /**
      * @var int|null
@@ -187,7 +187,7 @@ class Estapiezas
      * @ORM\Column(name="numK", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numk;
+    private $numK;
 
     /**
      * @var int|null
@@ -195,7 +195,7 @@ class Estapiezas
      * @ORM\Column(name="numIv2", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numiv2;
+    private $numIv2;
 
     /**
      * @var int|null
@@ -203,7 +203,7 @@ class Estapiezas
      * @ORM\Column(name="numC", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numc;
+    private $numC;
 
     /**
      * @var int|null
@@ -211,7 +211,7 @@ class Estapiezas
      * @ORM\Column(name="numOv3", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numov3;
+    private $numOv3;
 
     /**
      * @var int|null
@@ -219,7 +219,7 @@ class Estapiezas
      * @ORM\Column(name="numV", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numv;
+    private $numV;
 
     /**
      * @var int|null
@@ -227,7 +227,7 @@ class Estapiezas
      * @ORM\Column(name="numH", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numh;
+    private $numH;
 
     /**
      * @var int|null
@@ -235,7 +235,7 @@ class Estapiezas
      * @ORM\Column(name="numIv3", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numiv3;
+    private $numIv3;
 
     /**
      * @var int|null
@@ -243,7 +243,7 @@ class Estapiezas
      * @ORM\Column(name="numYv2", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numyv2;
+    private $numYv2;
 
     /**
      * @var int|null
@@ -251,7 +251,7 @@ class Estapiezas
      * @ORM\Column(name="numOv4", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numov4;
+    private $numOv4;
 
     /**
      * @var int|null
@@ -259,7 +259,7 @@ class Estapiezas
      * @ORM\Column(name="numJv2", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numjv2;
+    private $numJv2;
 
     /**
      * @var int|null
@@ -267,7 +267,7 @@ class Estapiezas
      * @ORM\Column(name="numA", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numa;
+    private $numA;
 
     /**
      * @var int|null
@@ -275,7 +275,7 @@ class Estapiezas
      * @ORM\Column(name="numMiniI", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numminii;
+    private $numMiniI;
 
     /**
      * @var int|null
@@ -283,7 +283,7 @@ class Estapiezas
      * @ORM\Column(name="numMiniIv2", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numminiiv2;
+    private $numMiniIv2;
 
     /**
      * @var int|null
@@ -291,7 +291,7 @@ class Estapiezas
      * @ORM\Column(name="numMiniL", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numminil;
+    private $numMiniL;
 
     /**
      * @var int|null
@@ -299,7 +299,7 @@ class Estapiezas
      * @ORM\Column(name="numMiniO", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numminio;
+    private $numMiniO;
 
     /**
      * @var int|null
@@ -307,7 +307,7 @@ class Estapiezas
      * @ORM\Column(name="numOv5", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numov5;
+    private $numOv5;
 
     /**
      * @var int|null
@@ -315,7 +315,7 @@ class Estapiezas
      * @ORM\Column(name="numOv6", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numov6;
+    private $numOv6;
 
     /**
      * @var int|null
@@ -323,7 +323,7 @@ class Estapiezas
      * @ORM\Column(name="numXv3", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numxv3;
+    private $numXv3;
 
     /**
      * @var int|null
@@ -331,7 +331,7 @@ class Estapiezas
      * @ORM\Column(name="numE", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $nume;
+    private $numE;
 
     /**
      * @var int|null
@@ -339,7 +339,7 @@ class Estapiezas
      * @ORM\Column(name="numTwinO", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numtwino;
+    private $numTwinO;
 
     /**
      * @var int|null
@@ -347,7 +347,7 @@ class Estapiezas
      * @ORM\Column(name="numTwinY", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numtwiny;
+    private $numTwinY;
 
     /**
      * @var int|null
@@ -355,7 +355,7 @@ class Estapiezas
      * @ORM\Column(name="numPickAxe", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numpickaxe;
+    private $numPickAxe;
 
     /**
      * @var int|null
@@ -363,7 +363,7 @@ class Estapiezas
      * @ORM\Column(name="numSv3", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numsv3;
+    private $numSv3;
 
     /**
      * @var int|null
@@ -371,7 +371,7 @@ class Estapiezas
      * @ORM\Column(name="numTwinOv2", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numtwinov2;
+    private $numTwinOv2;
 
     /**
      * @var int|null
@@ -379,7 +379,7 @@ class Estapiezas
      * @ORM\Column(name="numZv3", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numzv3;
+    private $numZv3;
 
     /**
      * @var int|null
@@ -387,7 +387,7 @@ class Estapiezas
      * @ORM\Column(name="numLadder", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numladder;
+    private $numLadder;
 
     /**
      * @var int|null
@@ -395,7 +395,7 @@ class Estapiezas
      * @ORM\Column(name="numHv2", type="integer", nullable=true)
      * @Groups ("estaPiezas")
      */
-    private $numhv2;
+    private $numHv2;
 
     /**
      * @var int|null
@@ -418,484 +418,484 @@ class Estapiezas
      */
     private $idjugador;
 
-    public function getNumo(): ?int
+    public function getNumO(): ?int
     {
-        return $this->numo;
+        return $this->numO;
     }
 
-    public function setNumo(?int $numo): void
+    public function setNumO(?int $numO): void
     {
-        $this->numo = $numo;
+        $this->numO = $numO;
     }
 
-    public function getNumi(): ?int
+    public function getNumI(): ?int
     {
-        return $this->numi;
+        return $this->numI;
     }
 
-    public function setNumi(?int $numi): void
+    public function setNumI(?int $numI): void
     {
-        $this->numi = $numi;
+        $this->numI = $numI;
     }
 
-    public function getNuml(): ?int
+    public function getNumL(): ?int
     {
-        return $this->numl;
+        return $this->numL;
     }
 
-    public function setNuml(?int $numl): void
+    public function setNumL(?int $numL): void
     {
-        $this->numl = $numl;
+        $this->numL = $numL;
     }
 
-    public function getNumz(): ?int
+    public function getNumZ(): ?int
     {
-        return $this->numz;
+        return $this->numZ;
     }
 
-    public function setNumz(?int $numz): void
+    public function setNumZ(?int $numZ): void
     {
-        $this->numz = $numz;
+        $this->numZ = $numZ;
     }
 
-    public function getNumj(): ?int
+    public function getNumJ(): ?int
     {
-        return $this->numj;
+        return $this->numJ;
     }
 
-    public function setNumj(?int $numj): void
+    public function setNumJ(?int $numJ): void
     {
-        $this->numj = $numj;
+        $this->numJ = $numJ;
     }
 
-    public function getNums(): ?int
+    public function getNumS(): ?int
     {
-        return $this->nums;
+        return $this->numS;
     }
 
-    public function setNums(?int $nums): void
+    public function setNumS(?int $numS): void
     {
-        $this->nums = $nums;
+        $this->numS = $numS;
     }
 
-    public function getNumt(): ?int
+    public function getNumT(): ?int
     {
-        return $this->numt;
+        return $this->numT;
     }
 
-    public function setNumt(?int $numt): void
+    public function setNumT(?int $numT): void
     {
-        $this->numt = $numt;
+        $this->numT = $numT;
     }
 
-    public function getNump(): ?int
+    public function getNumP(): ?int
     {
-        return $this->nump;
+        return $this->numP;
     }
 
-    public function setNump(?int $nump): void
+    public function setNumP(?int $numP): void
     {
-        $this->nump = $nump;
+        $this->numP = $numP;
     }
 
-    public function getNumx(): ?int
+    public function getNumX(): ?int
     {
-        return $this->numx;
+        return $this->numX;
     }
 
-    public function setNumx(?int $numx): void
+    public function setNumX(?int $numX): void
     {
-        $this->numx = $numx;
+        $this->numX = $numX;
     }
 
-    public function getNumu(): ?int
+    public function getNumU(): ?int
     {
-        return $this->numu;
+        return $this->numU;
     }
 
-    public function setNumu(?int $numu): void
+    public function setNumU(?int $numU): void
     {
-        $this->numu = $numu;
+        $this->numU = $numU;
     }
 
-    public function getNumlv2(): ?int
+    public function getNumLv2(): ?int
     {
-        return $this->numlv2;
+        return $this->numLv2;
     }
 
-    public function setNumlv2(?int $numlv2): void
+    public function setNumLv2(?int $numLv2): void
     {
-        $this->numlv2 = $numlv2;
+        $this->numLv2 = $numLv2;
     }
 
-    public function getNumw(): ?int
+    public function getNumW(): ?int
     {
-        return $this->numw;
+        return $this->numW;
     }
 
-    public function setNumw(?int $numw): void
+    public function setNumW(?int $numW): void
     {
-        $this->numw = $numw;
+        $this->numW = $numW;
     }
 
-    public function getNumtv2(): ?int
+    public function getNumTv2(): ?int
     {
-        return $this->numtv2;
+        return $this->numTv2;
     }
 
-    public function setNumtv2(?int $numtv2): void
+    public function setNumTv2(?int $numTv2): void
     {
-        $this->numtv2 = $numtv2;
+        $this->numTv2 = $numTv2;
     }
 
-    public function getNumzv2(): ?int
+    public function getNumZv2(): ?int
     {
-        return $this->numzv2;
+        return $this->numZv2;
     }
 
-    public function setNumzv2(?int $numzv2): void
+    public function setNumZv2(?int $numZv2): void
     {
-        $this->numzv2 = $numzv2;
+        $this->numZv2 = $numZv2;
     }
 
-    public function getNumxv2(): ?int
+    public function getNumXv2(): ?int
     {
-        return $this->numxv2;
+        return $this->numXv2;
     }
 
-    public function setNumxv2(?int $numxv2): void
+    public function setNumXv2(?int $numXv2): void
     {
-        $this->numxv2 = $numxv2;
+        $this->numXv2 = $numXv2;
     }
 
-    public function getNumlv3(): ?int
+    public function getNumLv3(): ?int
     {
-        return $this->numlv3;
+        return $this->numLv3;
     }
 
-    public function setNumlv3(?int $numlv3): void
+    public function setNumLv3(?int $numLv3): void
     {
-        $this->numlv3 = $numlv3;
+        $this->numLv3 = $numLv3;
     }
 
-    public function getNumf(): ?int
+    public function getNumF(): ?int
     {
-        return $this->numf;
+        return $this->numF;
     }
 
-    public function setNumf(?int $numf): void
+    public function setNumF(?int $numF): void
     {
-        $this->numf = $numf;
+        $this->numF = $numF;
     }
 
-    public function getNumov2(): ?int
+    public function getNumOv2(): ?int
     {
-        return $this->numov2;
+        return $this->numOv2;
     }
 
-    public function setNumov2(?int $numov2): void
+    public function setNumOv2(?int $numOv2): void
     {
-        $this->numov2 = $numov2;
+        $this->numOv2 = $numOv2;
     }
 
-    public function getNumsv2(): ?int
+    public function getNumSv2(): ?int
     {
-        return $this->numsv2;
+        return $this->numSv2;
     }
 
-    public function setNumsv2(?int $numsv2): void
+    public function setNumSv2(?int $numSv2): void
     {
-        $this->numsv2 = $numsv2;
+        $this->numSv2 = $numSv2;
     }
 
-    public function getNumb(): ?int
+    public function getNumB(): ?int
     {
-        return $this->numb;
+        return $this->numB;
     }
 
-    public function setNumb(?int $numb): void
+    public function setNumB(?int $numB): void
     {
-        $this->numb = $numb;
+        $this->numB = $numB;
     }
 
-    public function getNumy(): ?int
+    public function getNumY(): ?int
     {
-        return $this->numy;
+        return $this->numY;
     }
 
-    public function setNumy(?int $numy): void
+    public function setNumY(?int $numY): void
     {
-        $this->numy = $numy;
+        $this->numY = $numY;
     }
 
-    public function getNumk(): ?int
+    public function getNumK(): ?int
     {
-        return $this->numk;
+        return $this->numK;
     }
 
-    public function setNumk(?int $numk): void
+    public function setNumK(?int $numK): void
     {
-        $this->numk = $numk;
+        $this->numK = $numK;
     }
 
-    public function getNumiv2(): ?int
+    public function getNumIv2(): ?int
     {
-        return $this->numiv2;
+        return $this->numIv2;
     }
 
-    public function setNumiv2(?int $numiv2): void
+    public function setNumIv2(?int $numIv2): void
     {
-        $this->numiv2 = $numiv2;
+        $this->numIv2 = $numIv2;
     }
 
-    public function getNumc(): ?int
+    public function getNumC(): ?int
     {
-        return $this->numc;
+        return $this->numC;
     }
 
-    public function setNumc(?int $numc): void
+    public function setNumC(?int $numC): void
     {
-        $this->numc = $numc;
+        $this->numC = $numC;
     }
 
-    public function getNumov3(): ?int
+    public function getNumOv3(): ?int
     {
-        return $this->numov3;
+        return $this->numOv3;
     }
 
-    public function setNumov3(?int $numov3): void
+    public function setNumOv3(?int $numOv3): void
     {
-        $this->numov3 = $numov3;
+        $this->numOv3 = $numOv3;
     }
 
-    public function getNumv(): ?int
+    public function getNumV(): ?int
     {
-        return $this->numv;
+        return $this->numV;
     }
 
-    public function setNumv(?int $numv): void
+    public function setNumV(?int $numV): void
     {
-        $this->numv = $numv;
+        $this->numV = $numV;
     }
 
-    public function getNumh(): ?int
+    public function getNumH(): ?int
     {
-        return $this->numh;
+        return $this->numH;
     }
 
-    public function setNumh(?int $numh): void
+    public function setNumH(?int $numH): void
     {
-        $this->numh = $numh;
+        $this->numH = $numH;
     }
 
-    public function getNumiv3(): ?int
+    public function getNumIv3(): ?int
     {
-        return $this->numiv3;
+        return $this->numIv3;
     }
 
-    public function setNumiv3(?int $numiv3): void
+    public function setNumIv3(?int $numIv3): void
     {
-        $this->numiv3 = $numiv3;
+        $this->numIv3 = $numIv3;
     }
 
-    public function getNumyv2(): ?int
+    public function getNumYv2(): ?int
     {
-        return $this->numyv2;
+        return $this->numYv2;
     }
 
-    public function setNumyv2(?int $numyv2): void
+    public function setNumYv2(?int $numYv2): void
     {
-        $this->numyv2 = $numyv2;
+        $this->numYv2 = $numYv2;
     }
 
-    public function getNumov4(): ?int
+    public function getNumOv4(): ?int
     {
-        return $this->numov4;
+        return $this->numOv4;
     }
 
-    public function setNumov4(?int $numov4): void
+    public function setNumOv4(?int $numOv4): void
     {
-        $this->numov4 = $numov4;
+        $this->numOv4 = $numOv4;
     }
 
-    public function getNumjv2(): ?int
+    public function getNumJv2(): ?int
     {
-        return $this->numjv2;
+        return $this->numJv2;
     }
 
-    public function setNumjv2(?int $numjv2): void
+    public function setNumJv2(?int $numJv2): void
     {
-        $this->numjv2 = $numjv2;
+        $this->numJv2 = $numJv2;
     }
 
-    public function getNuma(): ?int
+    public function getNumA(): ?int
     {
-        return $this->numa;
+        return $this->numA;
     }
 
-    public function setNuma(?int $numa): void
+    public function setNumA(?int $numA): void
     {
-        $this->numa = $numa;
+        $this->numA = $numA;
     }
 
-    public function getNumminii(): ?int
+    public function getNumMiniI(): ?int
     {
-        return $this->numminii;
+        return $this->numMiniI;
     }
 
-    public function setNumminii(?int $numminii): void
+    public function setNumMiniI(?int $numMiniI): void
     {
-        $this->numminii = $numminii;
+        $this->numMiniI = $numMiniI;
     }
 
-    public function getNumminiiv2(): ?int
+    public function getNumMiniIv2(): ?int
     {
-        return $this->numminiiv2;
+        return $this->numMiniIv2;
     }
 
-    public function setNumminiiv2(?int $numminiiv2): void
+    public function setNumMiniIv2(?int $numMiniIv2): void
     {
-        $this->numminiiv2 = $numminiiv2;
+        $this->numMiniIv2 = $numMiniIv2;
     }
 
-    public function getNumminil(): ?int
+    public function getNumMiniL(): ?int
     {
-        return $this->numminil;
+        return $this->numMiniL;
     }
 
-    public function setNumminil(?int $numminil): void
+    public function setNumMiniL(?int $numMiniL): void
     {
-        $this->numminil = $numminil;
+        $this->numMiniL = $numMiniL;
     }
 
-    public function getNumminio(): ?int
+    public function getNumMiniO(): ?int
     {
-        return $this->numminio;
+        return $this->numMiniO;
     }
 
-    public function setNumminio(?int $numminio): void
+    public function setNumMiniO(?int $numMiniO): void
     {
-        $this->numminio = $numminio;
+        $this->numMiniO = $numMiniO;
     }
 
-    public function getNumov5(): ?int
+    public function getNumOv5(): ?int
     {
-        return $this->numov5;
+        return $this->numOv5;
     }
 
-    public function setNumov5(?int $numov5): void
+    public function setNumOv5(?int $numOv5): void
     {
-        $this->numov5 = $numov5;
+        $this->numOv5 = $numOv5;
     }
 
-    public function getNumov6(): ?int
+    public function getNumOv6(): ?int
     {
-        return $this->numov6;
+        return $this->numOv6;
     }
 
-    public function setNumov6(?int $numov6): void
+    public function setNumOv6(?int $numOv6): void
     {
-        $this->numov6 = $numov6;
+        $this->numOv6 = $numOv6;
     }
 
-    public function getNumxv3(): ?int
+    public function getNumXv3(): ?int
     {
-        return $this->numxv3;
+        return $this->numXv3;
     }
 
-    public function setNumxv3(?int $numxv3): void
+    public function setNumXv3(?int $numXv3): void
     {
-        $this->numxv3 = $numxv3;
+        $this->numXv3 = $numXv3;
     }
 
-    public function getNume(): ?int
+    public function getNumE(): ?int
     {
-        return $this->nume;
+        return $this->numE;
     }
 
-    public function setNume(?int $nume): void
+    public function setNumE(?int $numE): void
     {
-        $this->nume = $nume;
+        $this->numE = $numE;
     }
 
-    public function getNumtwino(): ?int
+    public function getNumTwinO(): ?int
     {
-        return $this->numtwino;
+        return $this->numTwinO;
     }
 
-    public function setNumtwino(?int $numtwino): void
+    public function setNumTwinO(?int $numTwinO): void
     {
-        $this->numtwino = $numtwino;
+        $this->numTwinO = $numTwinO;
     }
 
-    public function getNumtwiny(): ?int
+    public function getNumTwinY(): ?int
     {
-        return $this->numtwiny;
+        return $this->numTwinY;
     }
 
-    public function setNumtwiny(?int $numtwiny): void
+    public function setNumTwinY(?int $numTwinY): void
     {
-        $this->numtwiny = $numtwiny;
+        $this->numTwinY = $numTwinY;
     }
 
-    public function getNumpickaxe(): ?int
+    public function getNumPickAxe(): ?int
     {
-        return $this->numpickaxe;
+        return $this->numPickAxe;
     }
 
-    public function setNumpickaxe(?int $numpickaxe): void
+    public function setNumPickAxe(?int $numPickAxe): void
     {
-        $this->numpickaxe = $numpickaxe;
+        $this->numPickAxe = $numPickAxe;
     }
 
-    public function getNumsv3(): ?int
+    public function getNumSv3(): ?int
     {
-        return $this->numsv3;
+        return $this->numSv3;
     }
 
-    public function setNumsv3(?int $numsv3): void
+    public function setNumSv3(?int $numSv3): void
     {
-        $this->numsv3 = $numsv3;
+        $this->numSv3 = $numSv3;
     }
 
-    public function getNumtwinov2(): ?int
+    public function getNumTwinOv2(): ?int
     {
-        return $this->numtwinov2;
+        return $this->numTwinOv2;
     }
 
-    public function setNumtwinov2(?int $numtwinov2): void
+    public function setNumTwinOv2(?int $numTwinOv2): void
     {
-        $this->numtwinov2 = $numtwinov2;
+        $this->numTwinOv2 = $numTwinOv2;
     }
 
-    public function getNumzv3(): ?int
+    public function getNumZv3(): ?int
     {
-        return $this->numzv3;
+        return $this->numZv3;
     }
 
-    public function setNumzv3(?int $numzv3): void
+    public function setNumZv3(?int $numZv3): void
     {
-        $this->numzv3 = $numzv3;
+        $this->numZv3 = $numZv3;
     }
 
-    public function getNumladder(): ?int
+    public function getNumLadder(): ?int
     {
-        return $this->numladder;
+        return $this->numLadder;
     }
 
-    public function setNumladder(?int $numladder): void
+    public function setNumLadder(?int $numLadder): void
     {
-        $this->numladder = $numladder;
+        $this->numLadder = $numLadder;
     }
 
-    public function getNumhv2(): ?int
+    public function getNumHv2(): ?int
     {
-        return $this->numhv2;
+        return $this->numHv2;
     }
 
-    public function setNumhv2(?int $numhv2): void
+    public function setNumHv2(?int $numHv2): void
     {
-        $this->numhv2 = $numhv2;
+        $this->numHv2 = $numHv2;
     }
 
     public function getTotal(): ?int
@@ -920,54 +920,54 @@ class Estapiezas
 
     public function resetValores(): void
     {
-        $this->numo = 0;
-        $this->numi = 0;
-        $this->numl = 0;
-        $this->numz = 0;
-        $this->numj = 0;
-        $this->nums = 0;
-        $this->numt = 0;
-        $this->nump = 0;
-        $this->numx = 0;
-        $this->numu = 0;
-        $this->numlv2 = 0;
-        $this->numw = 0;
-        $this->numtv2 = 0;
-        $this->numzv2 = 0;
-        $this->numxv2 = 0;
-        $this->numlv3 = 0;
-        $this->numf = 0;
-        $this->numov2 = 0;
-        $this->numsv2 = 0;
-        $this->numb = 0;
-        $this->numy = 0;
-        $this->numk = 0;
-        $this->numiv2 = 0;
-        $this->numc = 0;
-        $this->numov3 = 0;
-        $this->numv = 0;
-        $this->numh = 0;
-        $this->numiv3 = 0;
-        $this->numyv2 = 0;
-        $this->numov4 = 0;
-        $this->numjv2 = 0;
-        $this->numa = 0;
-        $this->numminii = 0;
-        $this->numminiiv2 = 0;
-        $this->numminil = 0;
-        $this->numminio = 0;
-        $this->numov5 = 0;
-        $this->numov6 = 0;
-        $this->numxv3 = 0;
-        $this->nume = 0;
-        $this->numtwino = 0;
-        $this->numtwiny = 0;
-        $this->numpickaxe = 0;
-        $this->numsv3 = 0;
-        $this->numtwinov2 = 0;
-        $this->numzv3 = 0;
-        $this->numladder = 0;
-        $this->numhv2 = 0;
+        $this->numO = 0;
+        $this->numI = 0;
+        $this->numL = 0;
+        $this->numZ = 0;
+        $this->numJ = 0;
+        $this->numS = 0;
+        $this->numT = 0;
+        $this->numP = 0;
+        $this->numX = 0;
+        $this->numU = 0;
+        $this->numLv2 = 0;
+        $this->numW = 0;
+        $this->numTv2 = 0;
+        $this->numZv2 = 0;
+        $this->numXv2 = 0;
+        $this->numLv3 = 0;
+        $this->numF = 0;
+        $this->numOv2 = 0;
+        $this->numSv2 = 0;
+        $this->numB = 0;
+        $this->numY = 0;
+        $this->numK = 0;
+        $this->numIv2 = 0;
+        $this->numC = 0;
+        $this->numOv3 = 0;
+        $this->numV = 0;
+        $this->numH = 0;
+        $this->numIv3 = 0;
+        $this->numYv2 = 0;
+        $this->numOv4 = 0;
+        $this->numJv2 = 0;
+        $this->numA = 0;
+        $this->numMiniI = 0;
+        $this->numMiniIv2 = 0;
+        $this->numMiniL = 0;
+        $this->numMiniO = 0;
+        $this->numOv5 = 0;
+        $this->numOv6 = 0;
+        $this->numXv3 = 0;
+        $this->numE = 0;
+        $this->numTwinO = 0;
+        $this->numTwinY = 0;
+        $this->numPickAxe = 0;
+        $this->numSv3 = 0;
+        $this->numTwinOv2 = 0;
+        $this->numZv3 = 0;
+        $this->numLadder = 0;
+        $this->numHv2 = 0;
         $this->total = 0;
     }
 

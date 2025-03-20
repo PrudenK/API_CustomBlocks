@@ -67,5 +67,20 @@ class EstaPiezasController extends AbstractController
 
         return new JsonResponse(["mensaje" => "Datos actualizados correctamente"], Response::HTTP_OK);
     }
-    //TODO fix en total
+
+    /**
+         * @Route("/estaPiezas/{id}",methods={"GET"})
+     */
+    public function obtenerEstaPiezasPorJugador(int $id, SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    {
+        $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $id]);
+
+        $estaPiezas = $entityManager->getRepository(Estapiezas::class)->findOneBy(["idjugador" => $jugador]);
+
+        $data = $serializer->serialize(
+            $estaPiezas, 'json', ['groups' => ['estaPiezas'] ]
+        );
+
+        return new JsonResponse($data,Response::HTTP_OK, [], true);
+    }
 }
