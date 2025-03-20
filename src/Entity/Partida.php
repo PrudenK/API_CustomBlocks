@@ -82,5 +82,85 @@ class Partida
      */
     private $jugador;
 
+    public function getIdpartida(): int
+    {
+        return $this->idpartida;
+    }
+
+    public function setIdpartida(int $idpartida): void
+    {
+        $this->idpartida = $idpartida;
+    }
+
+    public function getModo(): ?string
+    {
+        return $this->modo;
+    }
+
+    public function setModo(?string $modo): void
+    {
+        $this->modo = $modo;
+    }
+
+    public function getNivel(): ?int
+    {
+        return $this->nivel;
+    }
+
+    public function setNivel(?int $nivel): void
+    {
+        $this->nivel = $nivel;
+    }
+
+    public function getPuntuacion(): ?int
+    {
+        return $this->puntuacion;
+    }
+
+    public function setPuntuacion(?int $puntuacion): void
+    {
+        $this->puntuacion = $puntuacion;
+    }
+
+    public function getTiempo(): ?string
+    {
+        return $this->tiempo;
+    }
+
+    public function setTiempo(?string $tiempo): void
+    {
+        $this->tiempo = $tiempo;
+    }
+
+    public function getLineas(): ?int
+    {
+        return $this->lineas;
+    }
+
+    public function setLineas(?int $lineas): void
+    {
+        $this->lineas = $lineas;
+    }
+
+    public function getFechajuego(): ?\DateTime
+    {
+        return $this->fechajuego;
+    }
+
+    public function setFechajuego(?\DateTime $fechajuego): void
+    {
+        $this->fechajuego = $fechajuego;
+    }
+
+    public function getJugador(): Jugador
+    {
+        return $this->jugador;
+    }
+
+    public function setJugador(Jugador $jugador): void
+    {
+        $this->jugador = $jugador;
+    }
+
 
 }

@@ -418,5 +418,505 @@ class Estapiezas
      */
     private $idjugador;
 
+    public function getNumo(): ?int
+    {
+        return $this->numo;
+    }
+
+    public function setNumo(?int $numo): void
+    {
+        $this->numo = $numo;
+    }
+
+    public function getNumi(): ?int
+    {
+        return $this->numi;
+    }
+
+    public function setNumi(?int $numi): void
+    {
+        $this->numi = $numi;
+    }
+
+    public function getNuml(): ?int
+    {
+        return $this->numl;
+    }
+
+    public function setNuml(?int $numl): void
+    {
+        $this->numl = $numl;
+    }
+
+    public function getNumz(): ?int
+    {
+        return $this->numz;
+    }
+
+    public function setNumz(?int $numz): void
+    {
+        $this->numz = $numz;
+    }
+
+    public function getNumj(): ?int
+    {
+        return $this->numj;
+    }
+
+    public function setNumj(?int $numj): void
+    {
+        $this->numj = $numj;
+    }
+
+    public function getNums(): ?int
+    {
+        return $this->nums;
+    }
+
+    public function setNums(?int $nums): void
+    {
+        $this->nums = $nums;
+    }
+
+    public function getNumt(): ?int
+    {
+        return $this->numt;
+    }
+
+    public function setNumt(?int $numt): void
+    {
+        $this->numt = $numt;
+    }
+
+    public function getNump(): ?int
+    {
+        return $this->nump;
+    }
+
+    public function setNump(?int $nump): void
+    {
+        $this->nump = $nump;
+    }
+
+    public function getNumx(): ?int
+    {
+        return $this->numx;
+    }
+
+    public function setNumx(?int $numx): void
+    {
+        $this->numx = $numx;
+    }
+
+    public function getNumu(): ?int
+    {
+        return $this->numu;
+    }
+
+    public function setNumu(?int $numu): void
+    {
+        $this->numu = $numu;
+    }
+
+    public function getNumlv2(): ?int
+    {
+        return $this->numlv2;
+    }
+
+    public function setNumlv2(?int $numlv2): void
+    {
+        $this->numlv2 = $numlv2;
+    }
+
+    public function getNumw(): ?int
+    {
+        return $this->numw;
+    }
+
+    public function setNumw(?int $numw): void
+    {
+        $this->numw = $numw;
+    }
+
+    public function getNumtv2(): ?int
+    {
+        return $this->numtv2;
+    }
+
+    public function setNumtv2(?int $numtv2): void
+    {
+        $this->numtv2 = $numtv2;
+    }
+
+    public function getNumzv2(): ?int
+    {
+        return $this->numzv2;
+    }
+
+    public function setNumzv2(?int $numzv2): void
+    {
+        $this->numzv2 = $numzv2;
+    }
+
+    public function getNumxv2(): ?int
+    {
+        return $this->numxv2;
+    }
+
+    public function setNumxv2(?int $numxv2): void
+    {
+        $this->numxv2 = $numxv2;
+    }
+
+    public function getNumlv3(): ?int
+    {
+        return $this->numlv3;
+    }
+
+    public function setNumlv3(?int $numlv3): void
+    {
+        $this->numlv3 = $numlv3;
+    }
+
+    public function getNumf(): ?int
+    {
+        return $this->numf;
+    }
+
+    public function setNumf(?int $numf): void
+    {
+        $this->numf = $numf;
+    }
+
+    public function getNumov2(): ?int
+    {
+        return $this->numov2;
+    }
+
+    public function setNumov2(?int $numov2): void
+    {
+        $this->numov2 = $numov2;
+    }
+
+    public function getNumsv2(): ?int
+    {
+        return $this->numsv2;
+    }
+
+    public function setNumsv2(?int $numsv2): void
+    {
+        $this->numsv2 = $numsv2;
+    }
+
+    public function getNumb(): ?int
+    {
+        return $this->numb;
+    }
+
+    public function setNumb(?int $numb): void
+    {
+        $this->numb = $numb;
+    }
+
+    public function getNumy(): ?int
+    {
+        return $this->numy;
+    }
+
+    public function setNumy(?int $numy): void
+    {
+        $this->numy = $numy;
+    }
+
+    public function getNumk(): ?int
+    {
+        return $this->numk;
+    }
+
+    public function setNumk(?int $numk): void
+    {
+        $this->numk = $numk;
+    }
+
+    public function getNumiv2(): ?int
+    {
+        return $this->numiv2;
+    }
+
+    public function setNumiv2(?int $numiv2): void
+    {
+        $this->numiv2 = $numiv2;
+    }
+
+    public function getNumc(): ?int
+    {
+        return $this->numc;
+    }
+
+    public function setNumc(?int $numc): void
+    {
+        $this->numc = $numc;
+    }
+
+    public function getNumov3(): ?int
+    {
+        return $this->numov3;
+    }
+
+    public function setNumov3(?int $numov3): void
+    {
+        $this->numov3 = $numov3;
+    }
+
+    public function getNumv(): ?int
+    {
+        return $this->numv;
+    }
+
+    public function setNumv(?int $numv): void
+    {
+        $this->numv = $numv;
+    }
+
+    public function getNumh(): ?int
+    {
+        return $this->numh;
+    }
+
+    public function setNumh(?int $numh): void
+    {
+        $this->numh = $numh;
+    }
+
+    public function getNumiv3(): ?int
+    {
+        return $this->numiv3;
+    }
+
+    public function setNumiv3(?int $numiv3): void
+    {
+        $this->numiv3 = $numiv3;
+    }
+
+    public function getNumyv2(): ?int
+    {
+        return $this->numyv2;
+    }
+
+    public function setNumyv2(?int $numyv2): void
+    {
+        $this->numyv2 = $numyv2;
+    }
+
+    public function getNumov4(): ?int
+    {
+        return $this->numov4;
+    }
+
+    public function setNumov4(?int $numov4): void
+    {
+        $this->numov4 = $numov4;
+    }
+
+    public function getNumjv2(): ?int
+    {
+        return $this->numjv2;
+    }
+
+    public function setNumjv2(?int $numjv2): void
+    {
+        $this->numjv2 = $numjv2;
+    }
+
+    public function getNuma(): ?int
+    {
+        return $this->numa;
+    }
+
+    public function setNuma(?int $numa): void
+    {
+        $this->numa = $numa;
+    }
+
+    public function getNumminii(): ?int
+    {
+        return $this->numminii;
+    }
+
+    public function setNumminii(?int $numminii): void
+    {
+        $this->numminii = $numminii;
+    }
+
+    public function getNumminiiv2(): ?int
+    {
+        return $this->numminiiv2;
+    }
+
+    public function setNumminiiv2(?int $numminiiv2): void
+    {
+        $this->numminiiv2 = $numminiiv2;
+    }
+
+    public function getNumminil(): ?int
+    {
+        return $this->numminil;
+    }
+
+    public function setNumminil(?int $numminil): void
+    {
+        $this->numminil = $numminil;
+    }
+
+    public function getNumminio(): ?int
+    {
+        return $this->numminio;
+    }
+
+    public function setNumminio(?int $numminio): void
+    {
+        $this->numminio = $numminio;
+    }
+
+    public function getNumov5(): ?int
+    {
+        return $this->numov5;
+    }
+
+    public function setNumov5(?int $numov5): void
+    {
+        $this->numov5 = $numov5;
+    }
+
+    public function getNumov6(): ?int
+    {
+        return $this->numov6;
+    }
+
+    public function setNumov6(?int $numov6): void
+    {
+        $this->numov6 = $numov6;
+    }
+
+    public function getNumxv3(): ?int
+    {
+        return $this->numxv3;
+    }
+
+    public function setNumxv3(?int $numxv3): void
+    {
+        $this->numxv3 = $numxv3;
+    }
+
+    public function getNume(): ?int
+    {
+        return $this->nume;
+    }
+
+    public function setNume(?int $nume): void
+    {
+        $this->nume = $nume;
+    }
+
+    public function getNumtwino(): ?int
+    {
+        return $this->numtwino;
+    }
+
+    public function setNumtwino(?int $numtwino): void
+    {
+        $this->numtwino = $numtwino;
+    }
+
+    public function getNumtwiny(): ?int
+    {
+        return $this->numtwiny;
+    }
+
+    public function setNumtwiny(?int $numtwiny): void
+    {
+        $this->numtwiny = $numtwiny;
+    }
+
+    public function getNumpickaxe(): ?int
+    {
+        return $this->numpickaxe;
+    }
+
+    public function setNumpickaxe(?int $numpickaxe): void
+    {
+        $this->numpickaxe = $numpickaxe;
+    }
+
+    public function getNumsv3(): ?int
+    {
+        return $this->numsv3;
+    }
+
+    public function setNumsv3(?int $numsv3): void
+    {
+        $this->numsv3 = $numsv3;
+    }
+
+    public function getNumtwinov2(): ?int
+    {
+        return $this->numtwinov2;
+    }
+
+    public function setNumtwinov2(?int $numtwinov2): void
+    {
+        $this->numtwinov2 = $numtwinov2;
+    }
+
+    public function getNumzv3(): ?int
+    {
+        return $this->numzv3;
+    }
+
+    public function setNumzv3(?int $numzv3): void
+    {
+        $this->numzv3 = $numzv3;
+    }
+
+    public function getNumladder(): ?int
+    {
+        return $this->numladder;
+    }
+
+    public function setNumladder(?int $numladder): void
+    {
+        $this->numladder = $numladder;
+    }
+
+    public function getNumhv2(): ?int
+    {
+        return $this->numhv2;
+    }
+
+    public function setNumhv2(?int $numhv2): void
+    {
+        $this->numhv2 = $numhv2;
+    }
+
+    public function getTotal(): ?int
+    {
+        return $this->total;
+    }
+
+    public function setTotal(?int $total): void
+    {
+        $this->total = $total;
+    }
+
+    public function getIdjugador(): Jugador
+    {
+        return $this->idjugador;
+    }
+
+    public function setIdjugador(Jugador $idjugador): void
+    {
+        $this->idjugador = $idjugador;
+    }
+
 
 }

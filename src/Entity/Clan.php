@@ -66,4 +66,54 @@ class Clan
         $this->jugadores = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function getIdclan(): int
+    {
+        return $this->idclan;
+    }
+
+    public function setIdclan(int $idclan): void
+    {
+        $this->idclan = $idclan;
+    }
+
+    public function getNombre(): ?string
+    {
+        return $this->nombre;
+    }
+
+    public function setNombre(?string $nombre): void
+    {
+        $this->nombre = $nombre;
+    }
+
+    public function getFechaini(): ?\DateTime
+    {
+        return $this->fechaini;
+    }
+
+    public function setFechaini(?\DateTime $fechaini): void
+    {
+        $this->fechaini = $fechaini;
+    }
+
+    public function getIdlider(): Jugador
+    {
+        return $this->idlider;
+    }
+
+    public function setIdlider(Jugador $idlider): void
+    {
+        $this->idlider = $idlider;
+    }
+
+    public function getJugadores(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->jugadores;
+    }
+
+    public function setJugadores(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $jugadores): void
+    {
+        $this->jugadores = $jugadores;
+    }
+
 }

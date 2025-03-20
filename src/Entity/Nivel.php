@@ -106,4 +106,114 @@ class Nivel
      */
     private $jugador;
 
+    public function getIdnivel(): int
+    {
+        return $this->idnivel;
+    }
+
+    public function setIdnivel(int $idnivel): void
+    {
+        $this->idnivel = $idnivel;
+    }
+
+    public function getTiempoobj(): ?string
+    {
+        return $this->tiempoobj;
+    }
+
+    public function setTiempoobj(?string $tiempoobj): void
+    {
+        $this->tiempoobj = $tiempoobj;
+    }
+
+    public function getPuntuacionobj(): ?int
+    {
+        return $this->puntuacionobj;
+    }
+
+    public function setPuntuacionobj(?int $puntuacionobj): void
+    {
+        $this->puntuacionobj = $puntuacionobj;
+    }
+
+    public function getLineasobj(): ?int
+    {
+        return $this->lineasobj;
+    }
+
+    public function setLineasobj(?int $lineasobj): void
+    {
+        $this->lineasobj = $lineasobj;
+    }
+
+    public function getMejortiempo(): ?string
+    {
+        return $this->mejortiempo;
+    }
+
+    public function setMejortiempo(?string $mejortiempo): void
+    {
+        $this->mejortiempo = $mejortiempo;
+    }
+
+    public function getMejorpuntuacion(): ?int
+    {
+        return $this->mejorpuntuacion;
+    }
+
+    public function setMejorpuntuacion(?int $mejorpuntuacion): void
+    {
+        $this->mejorpuntuacion = $mejorpuntuacion;
+    }
+
+    public function getMejorlineas(): ?int
+    {
+        return $this->mejorlineas;
+    }
+
+    public function setMejorlineas(?int $mejorlineas): void
+    {
+        $this->mejorlineas = $mejorlineas;
+    }
+
+    public function isCompletado(): bool
+    {
+        return $this->completado;
+    }
+
+    public function setCompletado(bool $completado): void
+    {
+        $this->completado = $completado;
+    }
+
+    public function isDesbloqueado(): bool
+    {
+        return $this->desbloqueado;
+    }
+
+    public function setDesbloqueado(bool $desbloqueado): void
+    {
+        $this->desbloqueado = $desbloqueado;
+    }
+
+    public function getMundo(): Mundo
+    {
+        return $this->mundo;
+    }
+
+    public function setMundo(Mundo $mundo): void
+    {
+        $this->mundo = $mundo;
+    }
+
+    public function getJugador(): Jugador
+    {
+        return $this->jugador;
+    }
+
+    public function setJugador(Jugador $jugador): void
+    {
+        $this->jugador = $jugador;
+    }
+
 }

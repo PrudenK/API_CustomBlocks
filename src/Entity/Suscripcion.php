@@ -47,5 +47,45 @@ class Suscripcion
      */
     private $nummodos;
 
+    public function getTipo(): int
+    {
+        return $this->tipo;
+    }
+
+    public function setTipo(int $tipo): void
+    {
+        $this->tipo = $tipo;
+    }
+
+    public function getNombre(): ?string
+    {
+        return $this->nombre;
+    }
+
+    public function setNombre(?string $nombre): void
+    {
+        $this->nombre = $nombre;
+    }
+
+    public function getPrecio(): ?string
+    {
+        return $this->precio;
+    }
+
+    public function setPrecio(?string $precio): void
+    {
+        $this->precio = $precio;
+    }
+
+    public function getNummodos(): ?int
+    {
+        return $this->nummodos;
+    }
+
+    public function setNummodos(?int $nummodos): void
+    {
+        $this->nummodos = $nummodos;
+    }
+
 
 }

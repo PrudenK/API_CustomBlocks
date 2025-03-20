@@ -72,6 +72,7 @@ class Jugador
     private $experiencia;
 
     /**
+     * @var Clan
      * @ORM\ManyToOne(targetEntity="Clan", inversedBy="jugadores")
      * @ORM\JoinColumn(name="idClan", referencedColumnName="idClan", nullable=true, onDelete="SET NULL")
      * @Groups ("jugador_clan")
@@ -143,6 +144,146 @@ class Jugador
         $this->niveles = new \Doctrine\Common\Collections\ArrayCollection();
         $this->partidas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->suscripciones = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function getNombre(): string
+    {
+        return $this->nombre;
+    }
+
+    public function setNombre(string $nombre): void
+    {
+        $this->nombre = $nombre;
+    }
+
+    public function getContrasena(): string
+    {
+        return $this->contrasena;
+    }
+
+    public function setContrasena(string $contrasena): void
+    {
+        $this->contrasena = $contrasena;
+    }
+
+    public function getNivel(): ?int
+    {
+        return $this->nivel;
+    }
+
+    public function setNivel(?int $nivel): void
+    {
+        $this->nivel = $nivel;
+    }
+
+    public function getFechaini(): ?\DateTime
+    {
+        return $this->fechaini;
+    }
+
+    public function setFechaini(?\DateTime $fechaini): void
+    {
+        $this->fechaini = $fechaini;
+    }
+
+    public function getPais(): ?string
+    {
+        return $this->pais;
+    }
+
+    public function setPais(?string $pais): void
+    {
+        $this->pais = $pais;
+    }
+
+    public function getExperiencia(): ?int
+    {
+        return $this->experiencia;
+    }
+
+    public function setExperiencia(?int $experiencia): void
+    {
+        $this->experiencia = $experiencia;
+    }
+
+    public function getClan()
+    {
+        return $this->clan;
+    }
+
+    public function setClan($clan): void
+    {
+        $this->clan = $clan;
+    }
+
+    public function getLogros(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->logros;
+    }
+
+    public function setLogros(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $logros): void
+    {
+        $this->logros = $logros;
+    }
+
+    public function getModosJuego(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->modosJuego;
+    }
+
+    public function setModosJuego(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $modosJuego): void
+    {
+        $this->modosJuego = $modosJuego;
+    }
+
+    public function getMundos(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->mundos;
+    }
+
+    public function setMundos(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $mundos): void
+    {
+        $this->mundos = $mundos;
+    }
+
+    public function getNiveles(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->niveles;
+    }
+
+    public function setNiveles(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $niveles): void
+    {
+        $this->niveles = $niveles;
+    }
+
+    public function getPartidas(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->partidas;
+    }
+
+    public function setPartidas(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $partidas): void
+    {
+        $this->partidas = $partidas;
+    }
+
+    public function getSuscripciones(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->suscripciones;
+    }
+
+    public function setSuscripciones(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $suscripciones): void
+    {
+        $this->suscripciones = $suscripciones;
     }
 
 }

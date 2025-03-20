@@ -50,5 +50,44 @@ class SuscripcionJugador
      */
     private $tipo;
 
+    public function getFechafin(): string
+    {
+        return $this->fechafin;
+    }
+
+    public function setFechafin(string $fechafin): void
+    {
+        $this->fechafin = $fechafin;
+    }
+
+    public function getFechainicio(): ?string
+    {
+        return $this->fechainicio;
+    }
+
+    public function setFechainicio(?string $fechainicio): void
+    {
+        $this->fechainicio = $fechainicio;
+    }
+
+    public function getJugador(): Jugador
+    {
+        return $this->jugador;
+    }
+
+    public function setJugador(Jugador $jugador): void
+    {
+        $this->jugador = $jugador;
+    }
+
+    public function getTipo(): Suscripcion
+    {
+        return $this->tipo;
+    }
+
+    public function setTipo(Suscripcion $tipo): void
+    {
+        $this->tipo = $tipo;
+    }
 
 }

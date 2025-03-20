@@ -47,4 +47,46 @@ class Mundo
      * @Groups ("mundo")
      */
     private $desbloqueado;
+
+    public function getIdmundo(): int
+    {
+        return $this->idmundo;
+    }
+
+    public function setIdmundo(int $idmundo): void
+    {
+        $this->idmundo = $idmundo;
+    }
+
+    public function getJugador(): Jugador
+    {
+        return $this->jugador;
+    }
+
+    public function setJugador(Jugador $jugador): void
+    {
+        $this->jugador = $jugador;
+    }
+
+    public function isCompletado(): bool
+    {
+        return $this->completado;
+    }
+
+    public function setCompletado(bool $completado): void
+    {
+        $this->completado = $completado;
+    }
+
+    public function isDesbloqueado(): bool
+    {
+        return $this->desbloqueado;
+    }
+
+    public function setDesbloqueado(bool $desbloqueado): void
+    {
+        $this->desbloqueado = $desbloqueado;
+    }
+
+
 }
