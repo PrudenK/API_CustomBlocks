@@ -52,11 +52,11 @@ class Clan
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     *
      * @ORM\OneToMany(targetEntity="Jugador", mappedBy="clan")
      * @Groups ("clan_jugadores")
      */
-    private $jugadores = array();
+    private $jugadores;
+
 
     /**
      * Constructor

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Logros
@@ -39,12 +40,11 @@ class Logros
     private $descripcion;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
      * @ORM\ManyToMany(targetEntity="Jugador", mappedBy="logros")
      * @Groups ("logros_jugador")
      */
-    private $jugadores = array();
+    private $jugadores;
+
 
     /**
      * Constructor

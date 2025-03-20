@@ -91,16 +91,20 @@ class Nivel
      * @var Mundo
      *
      * @ORM\ManyToOne(targetEntity="Mundo")
-     * @ORM\JoinColumn(name="idMundo", referencedColumnName="idMundo", nullable=false, onDelete="CASCADE")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idMundo", referencedColumnName="idMundo", nullable=false, onDelete="CASCADE"),
+     *   @ORM\JoinColumn(name="idJugador", referencedColumnName="idJugador", nullable=false, onDelete="CASCADE")
+     * })
      * @Groups ("nivel_mundo")
      */
     private $mundo;
+
 
     /**
      * @var Jugador
      *
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Jugador")
+     * @ORM\ManyToOne(targetEntity="Jugador", inversedBy="niveles")
      * @ORM\JoinColumn(name="idJugador", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      * @Groups ("nivel_jugador")
      */

@@ -74,10 +74,8 @@ class Partida
     /**
      * @var Jugador
      *
-     * @ORM\ManyToOne(targetEntity="Jugador")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idJugador", referencedColumnName="id")
-     * })
+     * @ORM\ManyToOne(targetEntity="Jugador", inversedBy="partidas")
+     * @ORM\JoinColumn(name="idJugador", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      * @Groups ("partida_jugador")
      */
     private $jugador;

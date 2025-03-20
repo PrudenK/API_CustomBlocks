@@ -15,7 +15,9 @@ CREATE TABLE jugador (
     nivel INT,
     fechaini DATE,
     pais VARCHAR(100),
-    experiencia INT
+    experiencia INT,
+    clan INT NULL,
+    FOREIGN KEY (clan) REFERENCES clan(idClan) ON DELETE SET NULL
 );
 
 CREATE TABLE suscripcion (
@@ -56,16 +58,6 @@ CREATE TABLE partida (
      fechaJuego varchar(50),
      FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE
 );
-
-
-CREATE TABLE jugador_clan (
-    idJugador INT,
-    idClan INT,
-    PRIMARY KEY (idJugador, idClan),
-    FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE,
-    FOREIGN KEY (idClan) REFERENCES clan(idClan) ON DELETE CASCADE
-);
-
 
 CREATE TABLE estaPiezas (
     idJugador INT,

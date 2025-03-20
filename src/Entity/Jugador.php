@@ -72,28 +72,23 @@ class Jugador
     private $experiencia;
 
     /**
-     * @var Clan
+     * @var Clan|null
      * @ORM\ManyToOne(targetEntity="Clan", inversedBy="jugadores")
-     * @ORM\JoinColumn(name="idClan", referencedColumnName="idClan", nullable=true, onDelete="SET NULL")
-     * @Groups ("jugador_clan")
+     * @ORM\JoinColumn(name="clan", referencedColumnName="idClan", nullable=true, onDelete="SET NULL")
+     * @Groups ("jugador")
      */
     private $clan;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
      * @ORM\ManyToMany(targetEntity="Logros", inversedBy="jugadores")
      * @ORM\JoinTable(name="logro_jugador",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="idJugador", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="idLogro", referencedColumnName="idLogro")
-     *   }
+     *   joinColumns={@ORM\JoinColumn(name="idJugador", referencedColumnName="id")},
+     *   inverseJoinColumns={@ORM\JoinColumn(name="idLogro", referencedColumnName="idLogro")}
      * )
      * @Groups ("jugador_logros")
      */
-    private $logros = array();
+    private $logros;
+
 
     /**
      * @var \Doctrine\Common\Collections\Collection
