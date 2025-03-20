@@ -30,6 +30,21 @@ class JugadorController extends AbstractController
     }
 
     /**
+     * @Route("/jugador/{id}",methods={"GET"})
+     */
+    public function getJugadorPorID(int $id, SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    {
+        $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $id]);
+
+        $data = $serializer->serialize(
+            $jugador, 'json', ['groups' => ['jugador'] ]
+        );
+
+        return new JsonResponse($data,Response::HTTP_OK, [], true);
+    }
+
+
+    /**
      * @Route("/crearJugador",methods={"POST"})
      */
     public function crearJugador(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager)
