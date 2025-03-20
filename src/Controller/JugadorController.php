@@ -12,7 +12,6 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\Routing\Annotation\Route;
-use function App\Utils\hashPassword;
 
 class JugadorController extends AbstractController
 {
@@ -73,11 +72,7 @@ class JugadorController extends AbstractController
             return new JsonResponse(["error" => "Contraseña incorrecta"], Response::HTTP_UNAUTHORIZED);
         }
 
-        $data = $serializer->serialize(
-            $jugador, 'json', ['groups' => ['jugador'] ]
-        );
-
-        return new JsonResponse($data,Response::HTTP_OK, [], true);
+        return new JsonResponse(["id" => $jugador->getId()], Response::HTTP_OK);
     }
 
     private function comprobarContra($contraIntro, $contraHash) {
