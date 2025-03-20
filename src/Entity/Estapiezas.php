@@ -918,5 +918,57 @@ class Estapiezas
         $this->idjugador = $idjugador;
     }
 
+    public function resetValores(): void
+    {
+        $this->numo = 0;
+        $this->numi = 0;
+        $this->numl = 0;
+        $this->numz = 0;
+        $this->numj = 0;
+        $this->nums = 0;
+        $this->numt = 0;
+        $this->nump = 0;
+        $this->numx = 0;
+        $this->numu = 0;
+        $this->numlv2 = 0;
+        $this->numw = 0;
+        $this->numtv2 = 0;
+        $this->numzv2 = 0;
+        $this->numxv2 = 0;
+        $this->numlv3 = 0;
+        $this->numf = 0;
+        $this->numov2 = 0;
+        $this->numsv2 = 0;
+        $this->numb = 0;
+        $this->numy = 0;
+        $this->numk = 0;
+        $this->numiv2 = 0;
+        $this->numc = 0;
+        $this->numov3 = 0;
+        $this->numv = 0;
+        $this->numh = 0;
+        $this->numiv3 = 0;
+        $this->numyv2 = 0;
+        $this->numov4 = 0;
+        $this->numjv2 = 0;
+        $this->numa = 0;
+        $this->numminii = 0;
+        $this->numminiiv2 = 0;
+        $this->numminil = 0;
+        $this->numminio = 0;
+        $this->numov5 = 0;
+        $this->numov6 = 0;
+        $this->numxv3 = 0;
+        $this->nume = 0;
+        $this->numtwino = 0;
+        $this->numtwiny = 0;
+        $this->numpickaxe = 0;
+        $this->numsv3 = 0;
+        $this->numtwinov2 = 0;
+        $this->numzv3 = 0;
+        $this->numladder = 0;
+        $this->numhv2 = 0;
+        $this->total = 0;
+    }
 
 }
