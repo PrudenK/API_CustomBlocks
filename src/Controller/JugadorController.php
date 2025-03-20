@@ -12,6 +12,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\Routing\Annotation\Route;
+use function App\Utils\hashPassword;
 
 class JugadorController extends AbstractController
 {
@@ -53,5 +54,45 @@ class JugadorController extends AbstractController
         $entityManager->flush();
 
         return new JsonResponse(["message" => "Jugador creado correctamente"], Response::HTTP_CREATED);
+    }
+
+    /**
+     * @Route("/iniciarSesion",methods={"POST"})
+     */
+    public function iniciarSesion(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    {
+        $data = json_decode($request->getContent(), true);
+
+        $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(['nombre' => $data['nombre']]);
+
+        if (!$jugador) {
+            return new JsonResponse(["error" => "Usuario no encontrado"], Response::HTTP_NOT_FOUND);
+        }
+
+        if (!$this->comprobarContra($data['contrasena'], $jugador->getContrasena())) {
+            return new JsonResponse(["error" => "Contraseña incorrecta"], Response::HTTP_UNAUTHORIZED);
+        }
+
+        $data = $serializer->serialize(
+            $jugador, 'json', ['groups' => ['jugador'] ]
+        );
+
+        return new JsonResponse($data,Response::HTTP_OK, [], true);
+    }
+
+    private function comprobarContra($contraIntro, $contraHash) {
+        $parts = explode(":", $contraHash);
+        if (count($parts) !== 2) {
+            return false;
+        }
+        $salt = base64_decode($parts[0]);
+        $contraHasheada = $parts[1];
+        $inputHasheada = $this->hashPassword($contraIntro, $salt);
+        return hash_equals($contraHasheada, $inputHasheada);
+    }
+
+    function hashPassword($contra, $salt) {
+        $hashedPassword = hash("sha256", $salt . $contra, true);
+        return base64_encode($hashedPassword);
     }
 }
