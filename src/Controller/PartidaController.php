@@ -41,4 +41,60 @@ class PartidaController extends AbstractController
 
         return new JsonResponse(["message" => "Partida guardada con éxito", "idPartida" => $partida->getIdpartida()], Response::HTTP_CREATED);
     }
+
+    /**
+     * @Route("/estadisticasModos/{idJugador}/{modo}", methods={"GET"})
+     */
+    public function estadisticasPorModoYJugador(
+        int $idJugador,
+        string $modo,
+        EntityManagerInterface $entityManager
+    ) {
+        $partidaRepo = $entityManager->getRepository(Partida::class);
+
+        $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $idJugador]);
+
+        $partidas = $partidaRepo->findBy([
+            "modo" => $modo,
+            "jugador" => $jugador
+        ]);
+
+        $maxNivel = 0;
+        $maxLineas = 0;
+        $maxPuntuacion = 0;
+        $maxTiempo = "00:00:00";
+        $lineasSum = 0;
+        $puntuacionesSum = 0;
+        $tiempoTotalSegundos = 0;
+
+        foreach ($partidas as $partida) {
+            $maxNivel = max($maxNivel, $partida->getNivel());
+            $maxLineas = max($maxLineas, $partida->getLineas());
+            $maxPuntuacion = max($maxPuntuacion, $partida->getPuntuacion());
+            $maxTiempo = max($maxTiempo, $partida->getTiempo()); // El tiempo ya viene en HH:MM:SS
+
+            $lineasSum += $partida->getLineas();
+            $puntuacionesSum += $partida->getPuntuacion();
+
+            list($horas, $minutos, $segundos) = explode(":", $partida->getTiempo());
+            $tiempoTotalSegundos += ($horas * 3600) + ($minutos * 60) + $segundos;
+        }
+
+        $tiempoTotal = gmdate("H:i:s", $tiempoTotalSegundos);
+
+        $response = [
+            "maxNivel" => $maxNivel,
+            "maxLineas" => $maxLineas,
+            "maxPuntuacion" => $maxPuntuacion,
+            "maxTiempo" => $maxTiempo,
+            "lineasSum" => $lineasSum,
+            "puntuacionesSum" => $puntuacionesSum,
+            "tiempoTotal" => $tiempoTotal
+        ];
+
+        return new JsonResponse($response, Response::HTTP_OK);
+    }
+
+
+
 }
