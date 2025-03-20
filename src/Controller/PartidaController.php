@@ -109,5 +109,42 @@ class PartidaController extends AbstractController
     }
 
 
+    /**
+     * @Route("/mejoresPartidas/{pais}/{modo}", methods={"GET"})
+     */
+    public function mejoresPartidas(
+        string $pais,
+        string $modo,
+        EntityManagerInterface $entityManager
+    ) {
+        $qb = $entityManager->createQueryBuilder();
+
+        $qb->select(
+            'j.nombre',
+            'j.nivel AS nivelJugador',
+            'p.nivel AS nivelPartida',
+            'p.lineas',
+            'p.puntuacion',
+            'p.tiempo',
+            'j.pais'
+        )
+            ->from(Partida::class, 'p')
+            ->join('p.jugador', 'j')
+            ->where('p.modo = :modo')
+            ->setParameter('modo', $modo)
+            ->orderBy('p.nivel', 'DESC')
+            ->addOrderBy('p.lineas', 'DESC')
+            ->addOrderBy('p.puntuacion', 'DESC')
+            ->setMaxResults(100);
+
+        if ($pais !== "Global") {
+            $qb->andWhere('j.pais = :pais')
+                ->setParameter('pais', $pais);
+        }
+
+        $resultados = $qb->getQuery()->getResult();
+
+        return new JsonResponse($resultados, Response::HTTP_OK);
+    }
 
 }
