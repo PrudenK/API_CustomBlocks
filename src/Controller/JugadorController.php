@@ -6,6 +6,8 @@ use App\Entity\Estapiezas;
 use App\Entity\Jugador;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -105,4 +107,53 @@ class JugadorController extends AbstractController
         $hashedPassword = hash("sha256", $salt . $contra, true);
         return base64_encode($hashedPassword);
     }
+
+    /**
+     * @Route("/subirImagen/{id}", methods={"POST"})
+     */
+    public function subirImagen(
+        int $id,
+        Request $request,
+        EntityManagerInterface $entityManager
+    ) {
+        $jugador = $entityManager->getRepository(Jugador::class)->find($id);
+
+        $file = $request->files->get('imagen');
+        if (!$file) {
+            return new JsonResponse(["error" => "Imagen no recibida"], 478);
+        }
+
+        if (!$file instanceof UploadedFile) {
+            return new JsonResponse(["error" => "No se ha subido ninguna imagen"], 499);
+        }
+
+        $directorioDestino = $this->getParameter('uploads_directory');
+
+        $rutaAnterior = $jugador->getImagen();
+        if ($rutaAnterior) {
+            $rutaAbsoluta = $directorioDestino . '/' . basename($rutaAnterior);
+            if (file_exists($rutaAbsoluta)) {
+                @unlink($rutaAbsoluta);
+            }
+        }
+
+        $nombreArchivo = uniqid() . '.' . $file->guessExtension();
+
+        try {
+            $file->move($directorioDestino, $nombreArchivo);
+        } catch (FileException $e) {
+            return new JsonResponse(["error" => "Error al guardar la imagen"], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        $jugador->setImagen('/uploads/' . $nombreArchivo);
+        $entityManager->persist($jugador);
+        $entityManager->flush();
+
+        return new JsonResponse([
+            "mensaje" => "Imagen subida con éxito",
+            "ruta" => '/uploads/' . $nombreArchivo
+        ], JsonResponse::HTTP_OK);
+    }
+
+
 }

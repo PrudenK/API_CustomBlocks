@@ -129,6 +129,14 @@ class Jugador
     private $suscripciones;
 
     /**
+     * @var string|null
+     *
+     * @ORM\Column(name="imagen", type="string", length=255, nullable=true)
+     * @Groups ("jugador")
+     */
+    private $imagen;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -281,4 +289,13 @@ class Jugador
         $this->suscripciones = $suscripciones;
     }
 
+    public function getImagen(): ?string
+    {
+        return $this->imagen;
+    }
+
+    public function setImagen(?string $imagen): void
+    {
+        $this->imagen = $imagen;
+    }
 }

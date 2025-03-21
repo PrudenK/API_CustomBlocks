@@ -17,6 +17,7 @@ CREATE TABLE jugador (
     pais VARCHAR(100),
     experiencia INT,
     clan INT NULL,
+    imagen VARCHAR(255),
     FOREIGN KEY (clan) REFERENCES clan(idClan) ON DELETE SET NULL
 );
 
