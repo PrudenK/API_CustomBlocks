@@ -25,7 +25,9 @@ CREATE TABLE suscripcion (
      tipo         INT PRIMARY KEY,
      nombre       VARCHAR(50),
      precio       VARCHAR(20),
-     numModos     INT
+     numModos     INT,
+     numPartidasGuardadas INT,
+     imagen VARCHAR(255)
 );
 
 CREATE TABLE clan (
@@ -175,3 +177,12 @@ CREATE TABLE logro_jugador (
    FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE,
    FOREIGN KEY (idLogro) REFERENCES logros(idLogro) ON DELETE CASCADE
 );
+
+INSERT INTO suscripcion (tipo, nombre, precio, numModos, numPartidasGuardadas, imagen)
+VALUES (1, 'Plan básico', '1.99€', 3, 3, "/public/uploads/images/estrellas1de3.jpg");
+
+INSERT INTO suscripcion (tipo, nombre, precio, numModos, numPartidasGuardadas, imagen)
+VALUES (2, 'Plan Fit me', '4.99€', 6, 6,"/public/uploads/images/estrellas2de3.jpg");
+
+INSERT INTO suscripcion (tipo, nombre, precio, numModos, numPartidasGuardadas, imagen)
+VALUES (3, 'Plan Ultra Mega GOD', '6.99€', 9, 9,"/public/uploads/images/estrellas3de3.jpg");

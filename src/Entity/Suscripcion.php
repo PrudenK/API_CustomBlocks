@@ -47,6 +47,22 @@ class Suscripcion
      */
     private $nummodos;
 
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="numPartidasGuardadas", type="integer", nullable=true)
+     * @Groups ("suscripcion")
+     */
+    private $numPartidasGuardadas;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="imagen", type="string", nullable=true)
+     * @Groups ("suscripcion")
+     */
+    private $imagen;
+
     public function getTipo(): int
     {
         return $this->tipo;
@@ -87,5 +103,23 @@ class Suscripcion
         $this->nummodos = $nummodos;
     }
 
+    public function getNumPartidasGuardadas(): ?int
+    {
+        return $this->numPartidasGuardadas;
+    }
 
+    public function setNumPartidasGuardadas(?int $numPartidasGuardadas): void
+    {
+        $this->numPartidasGuardadas = $numPartidasGuardadas;
+    }
+
+    public function getImagen(): ?string
+    {
+        return $this->imagen;
+    }
+
+    public function setImagen(?string $imagen): void
+    {
+        $this->imagen = $imagen;
+    }
 }
