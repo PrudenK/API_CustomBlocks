@@ -20,7 +20,7 @@ class PartidaController extends AbstractController
     /**
      * @Route("/subirPartida",methods={"POST"})
      */
-    public function crearJugador(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    public function subirPartida(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager)
     {
         $data = json_decode($request->getContent(), true);
 
@@ -145,6 +145,44 @@ class PartidaController extends AbstractController
         $resultados = $qb->getQuery()->getResult();
 
         return new JsonResponse($resultados, Response::HTTP_OK);
+    }
+
+
+    /**
+     * @Route("/partidasDelJugador/{idJugador}/{modo}", methods={"GET"})
+     */
+    public function partidasDelJugador(
+        int $idJugador,
+        string $modo,
+        EntityManagerInterface $entityManager
+    ) {
+        $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $idJugador]);
+
+        if($modo == "Todos"){
+            $partidas = $entityManager->getRepository(Partida::class)->findBy(["jugador" => $jugador]);
+        }else{
+            $partidas = $entityManager->getRepository(Partida::class)->findBy([
+                "jugador" => $jugador,
+                "modo" => $modo
+            ]);
+        }
+
+        $result = [];
+
+        foreach ($partidas as $partida) {
+            $result[] = [
+                "idPartida" => $partida->getIdPartida(),
+                "idJugador" => $jugador->getId(),
+                "modo" => $partida->getModo(),
+                "nivel" => $partida->getNivel(),
+                "puntuacion" => $partida->getPuntuacion(),
+                "tiempo" => $partida->getTiempo(),
+                "lineas" => $partida->getLineas(),
+                "fechaJuego" => $partida->getFechaJuego()->format("Y-m-d H:i:s") // formato compatible con Date en Kotlin
+            ];
+        }
+
+        return new JsonResponse($result, Response::HTTP_OK);
     }
 
 }
