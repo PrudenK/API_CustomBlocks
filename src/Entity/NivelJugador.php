@@ -21,7 +21,7 @@ class NivelJugador
 
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Jugador")
+     * @ORM\ManyToOne(targetEntity="Jugador", inversedBy="nivelesJugador")
      * @ORM\JoinColumn(name="idJugador", referencedColumnName="id", onDelete="CASCADE")
      * @Groups({"nivel_jugador"})
      */
