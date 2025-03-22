@@ -129,6 +129,15 @@ class Jugador
     private $imagen;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="NivelJugador", mappedBy="jugador")
+     *
+     * @Groups ("jugador_niveles")
+     */
+    private $nivelesJugador;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -138,6 +147,7 @@ class Jugador
         $this->mundos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->partidas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->suscripciones = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->nivelesJugador = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function getId(): int
@@ -279,4 +289,22 @@ class Jugador
     {
         $this->imagen = $imagen;
     }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+     */
+    public function getNivelesJugador()
+    {
+        return $this->nivelesJugador;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $nivelesJugador
+     */
+    public function setNivelesJugador($nivelesJugador): void
+    {
+        $this->nivelesJugador = $nivelesJugador;
+    }
+
+
 }

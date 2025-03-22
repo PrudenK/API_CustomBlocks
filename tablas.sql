@@ -150,21 +150,18 @@ CREATE TABLE nivel (
    FOREIGN KEY (idMundo) REFERENCES mundo(idMundo) ON DELETE CASCADE,
 );
 
-CREATE TABLE nivel (
+CREATE TABLE nivel_jugador (
    idNivel INT,
-   idMundo INT,
    idJugador INT,
-   tiempoObj VARCHAR(8),
-   puntuacionObj INT,
-   lineasObj INT,
    mejorTiempo VARCHAR(10),
    mejorPuntuacion INT,
    mejorLineas INT,
    completado BOOLEAN NOT NULL,
    desbloqueado BOOLEAN NOT NULL,
+   numIntentos INT,
    PRIMARY KEY (idNivel, idJugador),
-   FOREIGN KEY (idMundo) REFERENCES mundo(idMundo) ON DELETE CASCADE,
-   FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE
+   FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE,
+   FOREIGN KEY (idNivel) REFERENCES nivel(idNivel) ON DELETE CASCADE,
 );
 
 CREATE TABLE modos_juego(
