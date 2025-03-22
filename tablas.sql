@@ -130,6 +130,29 @@ CREATE TABLE mundo (
 CREATE TABLE nivel (
    idNivel INT,
    idMundo INT,
+   nombre VARCHAR(30),
+   arrayPiezas VARCHAR(255),
+   tiempoCaidaInicial INT,
+   lienasParaAumentar INT,
+   saltoDeTiempoPorLineas INT,
+   limiteRotacionesB BOOLEAN,
+   limiteRotacionesNum INT,
+   holdActivado BOOLEAN,
+   tablero INT,
+   siguientesDisponibles INT,
+   tipoTablero INT,
+   dash BOOLEAN,
+   puntuacionObj INT,
+   tiempoObj VARCHAR(9),
+   lineasObj INT,
+   numFases INT,
+   PRIMARY KEY (idNivel),
+   FOREIGN KEY (idMundo) REFERENCES mundo(idMundo) ON DELETE CASCADE,
+);
+
+CREATE TABLE nivel (
+   idNivel INT,
+   idMundo INT,
    idJugador INT,
    tiempoObj VARCHAR(8),
    puntuacionObj INT,
@@ -140,7 +163,7 @@ CREATE TABLE nivel (
    completado BOOLEAN NOT NULL,
    desbloqueado BOOLEAN NOT NULL,
    PRIMARY KEY (idNivel, idJugador),
-   FOREIGN KEY (idMundo) REFERENCES mundo(idMundo) ON DELETE CASCADE, 
+   FOREIGN KEY (idMundo) REFERENCES mundo(idMundo) ON DELETE CASCADE,
    FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE
 );
 

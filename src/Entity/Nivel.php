@@ -8,7 +8,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * Nivel
  *
- * @ORM\Table(name="nivel", indexes={@ORM\Index(name="idMundo", columns={"idMundo"}), @ORM\Index(name="idJugador", columns={"idJugador"})})
+ * @ORM\Table(name="nivel")
  * @ORM\Entity
  */
 class Nivel
@@ -21,15 +21,112 @@ class Nivel
      * @ORM\GeneratedValue(strategy="NONE")
      * @Groups ("nivel")
      */
-    private $idnivel;
+    private $idNivel;
+
+    /**
+     * @var Mundo
+     *
+     * @ORM\ManyToOne(targetEntity="Mundo")
+     * @ORM\JoinColumn(name="idMundo", referencedColumnName="idMundo", nullable=false, onDelete="CASCADE")
+     * @Groups ("nivel")
+     */
+    private $mundo;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="tiempoObj", type="string", length=8, nullable=true)
+     * @ORM\Column(name="nombre", type="string", length=30, nullable=true)
      * @Groups ("nivel")
      */
-    private $tiempoobj;
+    private $nombre;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="arrayPiezas", type="string", length=255, nullable=true)
+     * @Groups ("nivel")
+     */
+    private $arrayPiezas;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="tiempoCaidaInicial", type="integer", nullable=true)
+     * @Groups ("nivel")
+     */
+    private $tiempoCaidaInicial;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="lienasParaAumentar", type="integer", nullable=true)
+     * @Groups ("nivel")
+     */
+    private $lienasParaAumentar;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="saltoDeTiempoPorLineas", type="integer", nullable=true)
+     * @Groups ("nivel")
+     */
+    private $saltoDeTiempoPorLineas;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="limiteRotacionesB", type="boolean", nullable=false)
+     * @Groups ("nivel")
+     */
+    private $limiteRotacionesB;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="limiteRotacionesNum", type="integer", nullable=true)
+     * @Groups ("nivel")
+     */
+    private $limiteRotacionesNum;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="holdActivado", type="boolean", nullable=false)
+     * @Groups ("nivel")
+     */
+    private $holdActivado;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="tablero", type="integer", nullable=true)
+     * @Groups ("nivel")
+     */
+    private $tablero;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="siguientesDisponibles", type="integer", nullable=true)
+     * @Groups ("nivel")
+     */
+    private $siguientesDisponibles;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="tipoTablero", type="integer", nullable=true)
+     * @Groups ("nivel")
+     */
+    private $tipoTablero;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="dash", type="boolean", nullable=false)
+     * @Groups ("nivel")
+     */
+    private $dash;
 
     /**
      * @var int|null
@@ -37,7 +134,15 @@ class Nivel
      * @ORM\Column(name="puntuacionObj", type="integer", nullable=true)
      * @Groups ("nivel")
      */
-    private $puntuacionobj;
+    private $puntuacionObj;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="tiempoObj", type="string", length=9, nullable=true)
+     * @Groups ("nivel")
+     */
+    private $tiempoObj;
 
     /**
      * @var int|null
@@ -45,159 +150,24 @@ class Nivel
      * @ORM\Column(name="lineasObj", type="integer", nullable=true)
      * @Groups ("nivel")
      */
-    private $lineasobj;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="mejorTiempo", type="string", length=10, nullable=true)
-     * @Groups ("nivel")
-     */
-    private $mejortiempo;
+    private $lineasObj;
 
     /**
      * @var int|null
      *
-     * @ORM\Column(name="mejorPuntuacion", type="integer", nullable=true)
+     * @ORM\Column(name="numFases", type="integer", nullable=true)
      * @Groups ("nivel")
      */
-    private $mejorpuntuacion;
+    private $numFases;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="mejorLineas", type="integer", nullable=true)
-     * @Groups ("nivel")
-     */
-    private $mejorlineas;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="completado", type="boolean", nullable=false)
-     * @Groups ("nivel")
-     */
-    private $completado;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="desbloqueado", type="boolean", nullable=false)
-     * @Groups ("nivel")
-     */
-    private $desbloqueado;
-
-    /**
-     * @var Mundo
-     *
-     * @ORM\ManyToOne(targetEntity="Mundo")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idMundo", referencedColumnName="idMundo", nullable=false, onDelete="CASCADE"),
-     *   @ORM\JoinColumn(name="idJugador", referencedColumnName="idJugador", nullable=false, onDelete="CASCADE")
-     * })
-     * @Groups ("nivel_mundo")
-     */
-    private $mundo;
-
-
-    /**
-     * @var Jugador
-     *
-     * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Jugador", inversedBy="niveles")
-     * @ORM\JoinColumn(name="idJugador", referencedColumnName="id", nullable=false, onDelete="CASCADE")
-     * @Groups ("nivel_jugador")
-     */
-    private $jugador;
-
-    public function getIdnivel(): int
+    public function getIdNivel(): int
     {
-        return $this->idnivel;
+        return $this->idNivel;
     }
 
-    public function setIdnivel(int $idnivel): void
+    public function setIdNivel(int $idNivel): void
     {
-        $this->idnivel = $idnivel;
-    }
-
-    public function getTiempoobj(): ?string
-    {
-        return $this->tiempoobj;
-    }
-
-    public function setTiempoobj(?string $tiempoobj): void
-    {
-        $this->tiempoobj = $tiempoobj;
-    }
-
-    public function getPuntuacionobj(): ?int
-    {
-        return $this->puntuacionobj;
-    }
-
-    public function setPuntuacionobj(?int $puntuacionobj): void
-    {
-        $this->puntuacionobj = $puntuacionobj;
-    }
-
-    public function getLineasobj(): ?int
-    {
-        return $this->lineasobj;
-    }
-
-    public function setLineasobj(?int $lineasobj): void
-    {
-        $this->lineasobj = $lineasobj;
-    }
-
-    public function getMejortiempo(): ?string
-    {
-        return $this->mejortiempo;
-    }
-
-    public function setMejortiempo(?string $mejortiempo): void
-    {
-        $this->mejortiempo = $mejortiempo;
-    }
-
-    public function getMejorpuntuacion(): ?int
-    {
-        return $this->mejorpuntuacion;
-    }
-
-    public function setMejorpuntuacion(?int $mejorpuntuacion): void
-    {
-        $this->mejorpuntuacion = $mejorpuntuacion;
-    }
-
-    public function getMejorlineas(): ?int
-    {
-        return $this->mejorlineas;
-    }
-
-    public function setMejorlineas(?int $mejorlineas): void
-    {
-        $this->mejorlineas = $mejorlineas;
-    }
-
-    public function isCompletado(): bool
-    {
-        return $this->completado;
-    }
-
-    public function setCompletado(bool $completado): void
-    {
-        $this->completado = $completado;
-    }
-
-    public function isDesbloqueado(): bool
-    {
-        return $this->desbloqueado;
-    }
-
-    public function setDesbloqueado(bool $desbloqueado): void
-    {
-        $this->desbloqueado = $desbloqueado;
+        $this->idNivel = $idNivel;
     }
 
     public function getMundo(): Mundo
@@ -210,14 +180,165 @@ class Nivel
         $this->mundo = $mundo;
     }
 
-    public function getJugador(): Jugador
+    public function getNombre(): ?string
     {
-        return $this->jugador;
+        return $this->nombre;
     }
 
-    public function setJugador(Jugador $jugador): void
+    public function setNombre(?string $nombre): void
     {
-        $this->jugador = $jugador;
+        $this->nombre = $nombre;
     }
+
+    public function getArrayPiezas(): ?string
+    {
+        return $this->arrayPiezas;
+    }
+
+    public function setArrayPiezas(?string $arrayPiezas): void
+    {
+        $this->arrayPiezas = $arrayPiezas;
+    }
+
+    public function getTiempoCaidaInicial(): ?int
+    {
+        return $this->tiempoCaidaInicial;
+    }
+
+    public function setTiempoCaidaInicial(?int $tiempoCaidaInicial): void
+    {
+        $this->tiempoCaidaInicial = $tiempoCaidaInicial;
+    }
+
+    public function getLienasParaAumentar(): ?int
+    {
+        return $this->lienasParaAumentar;
+    }
+
+    public function setLienasParaAumentar(?int $lienasParaAumentar): void
+    {
+        $this->lienasParaAumentar = $lienasParaAumentar;
+    }
+
+    public function getSaltoDeTiempoPorLineas(): ?int
+    {
+        return $this->saltoDeTiempoPorLineas;
+    }
+
+    public function setSaltoDeTiempoPorLineas(?int $saltoDeTiempoPorLineas): void
+    {
+        $this->saltoDeTiempoPorLineas = $saltoDeTiempoPorLineas;
+    }
+
+    public function isLimiteRotacionesB(): bool
+    {
+        return $this->limiteRotacionesB;
+    }
+
+    public function setLimiteRotacionesB(bool $limiteRotacionesB): void
+    {
+        $this->limiteRotacionesB = $limiteRotacionesB;
+    }
+
+    public function getLimiteRotacionesNum(): ?int
+    {
+        return $this->limiteRotacionesNum;
+    }
+
+    public function setLimiteRotacionesNum(?int $limiteRotacionesNum): void
+    {
+        $this->limiteRotacionesNum = $limiteRotacionesNum;
+    }
+
+    public function isHoldActivado(): bool
+    {
+        return $this->holdActivado;
+    }
+
+    public function setHoldActivado(bool $holdActivado): void
+    {
+        $this->holdActivado = $holdActivado;
+    }
+
+    public function getTablero(): ?int
+    {
+        return $this->tablero;
+    }
+
+    public function setTablero(?int $tablero): void
+    {
+        $this->tablero = $tablero;
+    }
+
+    public function getSiguientesDisponibles(): ?int
+    {
+        return $this->siguientesDisponibles;
+    }
+
+    public function setSiguientesDisponibles(?int $siguientesDisponibles): void
+    {
+        $this->siguientesDisponibles = $siguientesDisponibles;
+    }
+
+    public function getTipoTablero(): ?int
+    {
+        return $this->tipoTablero;
+    }
+
+    public function setTipoTablero(?int $tipoTablero): void
+    {
+        $this->tipoTablero = $tipoTablero;
+    }
+
+    public function isDash(): bool
+    {
+        return $this->dash;
+    }
+
+    public function setDash(bool $dash): void
+    {
+        $this->dash = $dash;
+    }
+
+    public function getPuntuacionObj(): ?int
+    {
+        return $this->puntuacionObj;
+    }
+
+    public function setPuntuacionObj(?int $puntuacionObj): void
+    {
+        $this->puntuacionObj = $puntuacionObj;
+    }
+
+    public function getTiempoObj(): ?string
+    {
+        return $this->tiempoObj;
+    }
+
+    public function setTiempoObj(?string $tiempoObj): void
+    {
+        $this->tiempoObj = $tiempoObj;
+    }
+
+    public function getLineasObj(): ?int
+    {
+        return $this->lineasObj;
+    }
+
+    public function setLineasObj(?int $lineasObj): void
+    {
+        $this->lineasObj = $lineasObj;
+    }
+
+    public function getNumFases(): ?int
+    {
+        return $this->numFases;
+    }
+
+    public function setNumFases(?int $numFases): void
+    {
+        $this->numFases = $numFases;
+    }
+
 
 }
