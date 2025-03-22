@@ -146,6 +146,7 @@ CREATE TABLE nivel (
    tiempoObj VARCHAR(9),
    lineasObj INT,
    numFases INT,
+   imagen VARCHAR(255),
    PRIMARY KEY (idNivel),
    FOREIGN KEY (idMundo) REFERENCES mundo(idMundo) ON DELETE CASCADE,
 );

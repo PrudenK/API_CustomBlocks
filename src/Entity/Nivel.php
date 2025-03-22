@@ -160,6 +160,14 @@ class Nivel
      */
     private $numFases;
 
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="imagen", type="string", nullable=true)
+     * @Groups ("nivel")
+     */
+    private $imagen;
+
     public function getIdNivel(): int
     {
         return $this->idNivel;
@@ -340,5 +348,13 @@ class Nivel
         $this->numFases = $numFases;
     }
 
+    public function getImagen(): ?string
+    {
+        return $this->imagen;
+    }
 
+    public function setImagen(?string $imagen): void
+    {
+        $this->imagen = $imagen;
+    }
 }
