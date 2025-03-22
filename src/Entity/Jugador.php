@@ -99,13 +99,6 @@ class Jugador
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     * @ORM\OneToMany(targetEntity="Mundo", mappedBy="jugador", cascade={"persist", "remove"})
-     * @Groups ("jugador_mundos")
-     */
-    private $mundos;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Partida", mappedBy="jugador", cascade={"persist", "remove"})
      * @Groups ("jugador_partidas")
@@ -144,7 +137,6 @@ class Jugador
     {
         $this->logros = new \Doctrine\Common\Collections\ArrayCollection();
         $this->modosJuego = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->mundos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->partidas = new \Doctrine\Common\Collections\ArrayCollection();
         $this->suscripciones = new \Doctrine\Common\Collections\ArrayCollection();
         $this->nivelesJugador = new \Doctrine\Common\Collections\ArrayCollection();
@@ -248,16 +240,6 @@ class Jugador
     public function setModosJuego(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $modosJuego): void
     {
         $this->modosJuego = $modosJuego;
-    }
-
-    public function getMundos(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
-    {
-        return $this->mundos;
-    }
-
-    public function setMundos(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $mundos): void
-    {
-        $this->mundos = $mundos;
     }
 
     public function getPartidas(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection

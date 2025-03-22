@@ -120,12 +120,20 @@ CREATE TABLE estaPiezas (
 
 CREATE TABLE mundo (
    idMundo INT,
+   imagen VARCHAR(255),
+   PRIMARY KEY (idMundo)
+);
+
+CREATE TABLE mundo_jugador (
+   idMundo INT,
    idJugador INT,
    completado BOOLEAN NOT NULL,
    desbloqueado BOOLEAN NOT NULL,
    PRIMARY KEY (idMundo, idJugador),
-   FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE
+   FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE,
+   FOREIGN KEY (idMundo) REFERENCES mundo(idMundo) ON DELETE CASCADE
 );
+
 
 CREATE TABLE nivel (
    idNivel INT,
@@ -148,7 +156,7 @@ CREATE TABLE nivel (
    numFases INT,
    imagen VARCHAR(255),
    PRIMARY KEY (idNivel),
-   FOREIGN KEY (idMundo) REFERENCES mundo(idMundo) ON DELETE CASCADE,
+   FOREIGN KEY (idMundo) REFERENCES mundo(idMundo) ON DELETE CASCADE
 );
 
 CREATE TABLE nivel_jugador (
@@ -162,7 +170,7 @@ CREATE TABLE nivel_jugador (
    numIntentos INT,
    PRIMARY KEY (idNivel, idJugador),
    FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE,
-   FOREIGN KEY (idNivel) REFERENCES nivel(idNivel) ON DELETE CASCADE,
+   FOREIGN KEY (idNivel) REFERENCES nivel(idNivel) ON DELETE CASCADE
 );
 
 CREATE TABLE modos_juego(
@@ -198,6 +206,8 @@ CREATE TABLE logro_jugador (
    FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE,
    FOREIGN KEY (idLogro) REFERENCES logros(idLogro) ON DELETE CASCADE
 );
+
+DELETE FROM suscripcion;
 
 INSERT INTO suscripcion (tipo, nombre, precio, numModos, numPartidasGuardadas, imagen)
 VALUES (1, 'Plan básico', '1.99€', 3, 3, "/public/uploads/images/estrellas1de3.jpg");

@@ -8,7 +8,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * Mundo
  *
- * @ORM\Table(name="mundo", indexes={@ORM\Index(name="idJugador", columns={"idJugador"})})
+ * @ORM\Table(name="mundo")
  * @ORM\Entity
  */
 class Mundo
@@ -21,72 +21,33 @@ class Mundo
      * @ORM\GeneratedValue(strategy="NONE")
      * @Groups ("mundo")
      */
-    private $idmundo;
+    private $idMundo;
 
     /**
-     * @var Jugador
-     * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Jugador", inversedBy="mundos")
-     * @ORM\JoinColumn(name="idJugador", referencedColumnName="id", nullable=false, onDelete="CASCADE")
-     * @Groups ("mundo_jugador")
-     */
-    private $jugador;
-
-    /**
-     * @var bool
+     * @var string|null
      *
-     * @ORM\Column(name="completado", type="boolean", nullable=false)
+     * @ORM\Column(name="imagen", type="string", length=255, nullable=true)
      * @Groups ("mundo")
      */
-    private $completado;
+    private $imagen;
 
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="desbloqueado", type="boolean", nullable=false)
-     * @Groups ("mundo")
-     */
-    private $desbloqueado;
-
-    public function getIdmundo(): int
+    public function getIdMundo(): int
     {
-        return $this->idmundo;
+        return $this->idMundo;
     }
 
-    public function setIdmundo(int $idmundo): void
+    public function setIdMundo(int $idMundo): void
     {
-        $this->idmundo = $idmundo;
+        $this->idMundo = $idMundo;
     }
 
-    public function getJugador(): Jugador
+    public function getImagen(): ?string
     {
-        return $this->jugador;
+        return $this->imagen;
     }
 
-    public function setJugador(Jugador $jugador): void
+    public function setImagen(?string $imagen): void
     {
-        $this->jugador = $jugador;
+        $this->imagen = $imagen;
     }
-
-    public function isCompletado(): bool
-    {
-        return $this->completado;
-    }
-
-    public function setCompletado(bool $completado): void
-    {
-        $this->completado = $completado;
-    }
-
-    public function isDesbloqueado(): bool
-    {
-        return $this->desbloqueado;
-    }
-
-    public function setDesbloqueado(bool $desbloqueado): void
-    {
-        $this->desbloqueado = $desbloqueado;
-    }
-
-
 }
