@@ -9,7 +9,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Serializer\SerializerInterface;
 
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -18,7 +17,7 @@ class MundoJugadorController extends AbstractController
     /**
      * @Route("/mundoJugador/{id}",methods={"GET"})
      */
-    public function getAllMundos(int $id,SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    public function getAllMundosJugador(int $id, EntityManagerInterface $entityManager)
     {
         $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(['id' => $id]);
         $mundosJugador = $entityManager->getRepository(MundoJugador::class)->findBy(['jugador' => $jugador]);
@@ -34,6 +33,5 @@ class MundoJugadorController extends AbstractController
         }
 
         return new JsonResponse($result, Response::HTTP_OK);
-
     }
 }
