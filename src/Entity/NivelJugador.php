@@ -40,12 +40,6 @@ class NivelJugador
     private $mejorPuntuacion;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @Groups({"nivel_jugador"})
-     */
-    private $mejorLineas;
-
-    /**
      * @ORM\Column(type="boolean")
      * @Groups({"nivel_jugador"})
      */
@@ -103,16 +97,6 @@ class NivelJugador
     public function setMejorPuntuacion(?int $mejorPuntuacion): void
     {
         $this->mejorPuntuacion = $mejorPuntuacion;
-    }
-
-    public function getMejorLineas(): ?int
-    {
-        return $this->mejorLineas;
-    }
-
-    public function setMejorLineas(?int $mejorLineas): void
-    {
-        $this->mejorLineas = $mejorLineas;
     }
 
     public function isCompletado(): bool

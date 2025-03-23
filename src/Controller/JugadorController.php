@@ -91,7 +91,6 @@ class JugadorController extends AbstractController
             $nivelJugador->setJugador($jugador);
             $nivelJugador->setCompletado(false);
             $nivelJugador->setDesbloqueado($numero == 1);
-            $nivelJugador->setMejorLineas(0);
             $nivelJugador->setMejorPuntuacion(0);
             $nivelJugador->setNumIntentos(0);
             $nivelJugador->setMejorTiempo("/0:00:00");
