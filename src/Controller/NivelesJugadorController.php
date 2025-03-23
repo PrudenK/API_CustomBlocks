@@ -81,6 +81,20 @@ class NivelesJugadorController extends AbstractController
 
         $njActualizar->setNumIntentos($njActualizar->getNumIntentos() + 1);
 
+        if($idNivel % 9 == 0){
+            $siguienteMundo = $siguienteNivel->getMundo();
+            $siguienteMundoJugador = $entityManager->getRepository(MundoJugador::class)->findOneBy(["jugador" => $jugador, "mundo" => $siguienteMundo]);
+            $siguienteMundoJugador->setDesbloqueado(true);
+
+            $mundoActual = $nivel->getMundo();
+            $mundoJugadorActual = $entityManager->getRepository(MundoJugador::class)->findOneBy(["jugador" => $jugador, "mundo" => $mundoActual]);
+            $mundoJugadorActual->setCompletado(true);
+
+            $entityManager->persist($siguienteMundoJugador);
+            $entityManager->persist($mundoJugadorActual);
+        }
+
+
         $entityManager->persist($njActualizar);
         $entityManager->flush();
 
