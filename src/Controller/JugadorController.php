@@ -16,9 +16,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\Request;
-
-use Symfony\Component\Routing\Annotation\Route;
-use function Sodium\add;
+use Symfony\Component\Routing\Annotation\Route;;
 
 class JugadorController extends AbstractController
 {
