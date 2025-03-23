@@ -4,6 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Estapiezas;
 use App\Entity\Jugador;
+use App\Entity\Mundo;
+use App\Entity\MundoJugador;
+use App\Entity\Nivel;
+use App\Entity\NivelJugador;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -14,6 +18,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\Routing\Annotation\Route;
+use function Sodium\add;
 
 class JugadorController extends AbstractController
 {
@@ -51,6 +56,7 @@ class JugadorController extends AbstractController
      */
     public function crearJugador(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager)
     { //TODO retormar implementación cuando tenga creados todos los niveles
+
         $jsonContent = $request->getContent();
 
         $jugador = $serializer->deserialize($jsonContent, Jugador::class, 'json');
@@ -65,8 +71,35 @@ class JugadorController extends AbstractController
         $estaPiezas->resetValores();
         $estaPiezas->setIdjugador($jugador);
 
+
         $entityManager->persist($jugador);
         $entityManager->persist($estaPiezas);
+
+
+        //$jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => 5]);
+
+        foreach (range(1, 9) as $numero) {
+            $mundoJugador = new MundoJugador();
+            $mundoJugador->setJugador($jugador);
+            $mundoJugador->setMundo($entityManager->getRepository(Mundo::class)->findOneBy(["idMundo" => $numero]));
+            $mundoJugador->setCompletado(false);
+            $mundoJugador->setDesbloqueado($numero == 1);
+            $entityManager->persist($mundoJugador);
+        }
+
+        foreach (range(1, 81) as $numero) {
+            $nivelJugador = new NivelJugador();
+            $nivelJugador->setNivel($entityManager->getRepository(Nivel::class)->findOneBy(["idNivel" => $numero]));
+            $nivelJugador->setJugador($jugador);
+            $nivelJugador->setCompletado(false);
+            $nivelJugador->setDesbloqueado($numero == 1);
+            $nivelJugador->setMejorLineas(0);
+            $nivelJugador->setMejorPuntuacion(0);
+            $nivelJugador->setNumIntentos(0);
+            $nivelJugador->setMejorTiempo("/0:00:00");
+            $entityManager->persist($nivelJugador);
+        }
+
         $entityManager->flush();
 
         return new JsonResponse(["message" => "Jugador creado correctamente"], Response::HTTP_CREATED);

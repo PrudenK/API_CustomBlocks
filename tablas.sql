@@ -210,41 +210,23 @@ CREATE TABLE logro_jugador (
 DELETE FROM suscripcion;
 
 INSERT INTO suscripcion (tipo, nombre, precio, numModos, numPartidasGuardadas, imagen)
-VALUES (1, 'Plan básico', '1.99€', 3, 3, "/uploads/images/estrellas1de3.jpg");
-
-INSERT INTO suscripcion (tipo, nombre, precio, numModos, numPartidasGuardadas, imagen)
-VALUES (2, 'Plan Fit me', '4.99€', 6, 6,"/uploads/images/estrellas2de3.jpg");
-
-INSERT INTO suscripcion (tipo, nombre, precio, numModos, numPartidasGuardadas, imagen)
-VALUES (3, 'Plan Ultra Mega GOD', '6.99€', 9, 9,"/uploads/images/estrellas3de3.jpg");
+VALUES
+    (1, 'Plan básico', '1.99€', 3, 3, "/uploads/images/estrellas1de3.jpg"),
+    (2, 'Plan Fit me', '4.99€', 6, 6,"/uploads/images/estrellas2de3.jpg"),
+    (3, 'Plan Ultra Mega GOD', '6.99€', 9, 9,"/uploads/images/estrellas3de3.jpg");
 
 
 INSERT INTO mundo (idMundo, imagen)
-VALUES (1, "/uploads/mund1/Mundo1.jpg");
-
-INSERT INTO mundo (idMundo, imagen)
-VALUES (2, "/uploads/mund2/Mundo2.jpg");
-
-INSERT INTO mundo (idMundo, imagen)
-VALUES (3, "/uploads/mund3/Mundo3.jpg");
-
-INSERT INTO mundo (idMundo, imagen)
-VALUES (4, "/uploads/mund4/Mundo4.jpg");
-
-INSERT INTO mundo (idMundo, imagen)
-VALUES (5, "/uploads/mund5/Mundo5.jpg");
-
-INSERT INTO mundo (idMundo, imagen)
-VALUES (6, "/uploads/mund6/Mundo6.jpg");
-
-INSERT INTO mundo (idMundo, imagen)
-VALUES (7, "/uploads/mund7/Mundo7.jpg");
-
-INSERT INTO mundo (idMundo, imagen)
-VALUES (8, "/uploads/mund8/Mundo8.jpg");
-
-INSERT INTO mundo (idMundo, imagen)
-VALUES (9, "/uploads/mund9/Mundo9.jpg");
+VALUES
+    (1, "/uploads/mund1/Mundo1.jpg"),
+    (2, "/uploads/mund2/Mundo2.jpg"),
+    (3, "/uploads/mund3/Mundo3.jpg"),
+    (4, "/uploads/mund4/Mundo4.jpg"),
+    (5, "/uploads/mund5/Mundo5.jpg"),
+    (6, "/uploads/mund6/Mundo6.jpg"),
+    (7, "/uploads/mund7/Mundo7.jpg"),
+    (8, "/uploads/mund8/Mundo8.jpg"),
+    (9, "/uploads/mund9/Mundo9.jpg");
 
 
 
