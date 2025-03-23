@@ -42,6 +42,27 @@ class NivelesJugadorController extends AbstractController
     }
 
     /**
+     * @Route("/nivelPerdido/{id}/{idNivel}",methods={"POST"})
+     */
+    public function nivelPerdido(int $id,int $idNivel,SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    {
+        $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(['id' => $id]);
+        $nivel = $entityManager->getRepository(Nivel::class)->findOneBy(['idNivel' => $idNivel]);
+
+        $njActualizar = $entityManager->getRepository(NivelJugador::class)->findOneBy(['nivel' => $nivel, 'jugador' => $jugador]);
+        $njActualizar->setNumIntentos($njActualizar->getNumIntentos() + 1);
+
+        $entityManager->persist($njActualizar);
+        $entityManager->flush();
+
+        $data = $serializer->serialize(
+            $njActualizar, 'json', ['groups' => ['nivel_jugador'] ]
+        );
+
+        return new JsonResponse($data,Response::HTTP_OK, [], true);
+    }
+
+    /**
      * @Route("/completarNivel/{id}/{idNivel}",methods={"POST"})
      */
     public function completarNivel(int $id, int $idNivel, Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager)
