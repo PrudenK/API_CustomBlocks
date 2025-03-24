@@ -196,7 +196,8 @@ CREATE TABLE modos_juego(
 CREATE TABLE logros (
     idLogro INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(255) NOT NULL,
-    descripcion TEXT NOT NULL
+    descripcion TEXT NOT NULL,
+    imagen VARCHAR(255)
 );
 
 CREATE TABLE logro_jugador (
@@ -315,3 +316,7 @@ VALUES
     (79, 9, "Mundo 9, Nivel 7", "1_10_11_15_32", 850, 4, 350, false, -1, true, 1, true, 1, false, 2500, "/0:02:00", 12, 3, "/uploads/mund9/Nivel_9_7.jpg"),
     (80, 9, "Mundo 9, Nivel 8", "6_26", 250, 6, 0, false, -1, true, 0, true, 1, true, 0, "/0:00:40", 6, 1, "/uploads/mund9/Nivel_9_8.jpg"),
     (81, 9, "Mundo 9, Nivel 9", "0_1_2_3_4_5_6", 150, 30, 0, true, 3, true, 1, true, 1, false, 6000, "/0:02:30", 30, 1, "/uploads/mund9/Nivel_9_9.jpg");
+
+INSERT INTO logros (nombre, descripcion)
+VALUES
+    ("¡Mundo 1!", "Completar el mundo 1");

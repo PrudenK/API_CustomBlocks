@@ -45,6 +45,12 @@ class Logros
      */
     private $jugadores;
 
+    /**
+     * @var string|null
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups ("logros")
+     */
+    private $imagen;
 
     /**
      * Constructor
