@@ -80,6 +80,28 @@ class PartidaController extends AbstractController
     }
 
     /**
+     * @Route("/puntuacion/{id}",methods={"GET"})
+     */
+    public function getNumeroPuntos(int $id, EntityManagerInterface $entityManager)
+    {
+        $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $id]);
+
+        $qb = $entityManager->createQueryBuilder();
+
+        $sumaLineas = $qb->select('SUM(p.puntuacion)')
+            ->from(Partida::class, 'p')
+            ->where('p.jugador = :jugador')
+            ->andWhere('p.modo != :modo')
+            ->setParameter('jugador', $jugador)
+            ->setParameter('modo', 'Custom')
+            ->getQuery()
+            ->getSingleScalarResult();
+
+        return new JsonResponse((int)$sumaLineas, Response::HTTP_OK);
+    }
+
+
+    /**
      * @Route("/estadisticasModos/{idJugador}/{modo}", methods={"GET"})
      */
     public function estadisticasPorModoYJugador(
