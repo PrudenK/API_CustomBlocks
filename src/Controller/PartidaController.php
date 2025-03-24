@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Estapiezas;
 use App\Entity\Jugador;
+use App\Entity\Logros;
 use App\Entity\Partida;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -40,6 +41,21 @@ class PartidaController extends AbstractController
         $entityManager->flush();
 
         return new JsonResponse(["message" => "Partida guardada con éxito", "idPartida" => $partida->getIdpartida()], Response::HTTP_CREATED);
+    }
+
+    /**
+     * @Route("/numPartidasClasicas/{id}",methods={"GET"})
+     */
+    public function getNumeroPartidasClasicas(int $id, EntityManagerInterface $entityManager)
+    {
+        $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $id]);
+
+        $numeroClasicas = $entityManager->getRepository(Partida::class)->count([
+            'jugador' => $jugador,
+            'modo' => 'Clásico'
+        ]);
+
+        return new JsonResponse($numeroClasicas, Response::HTTP_OK);
     }
 
     /**
