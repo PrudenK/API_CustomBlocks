@@ -53,6 +53,13 @@ class Logros
     private $imagen;
 
     /**
+     * @var int|null
+     * @ORM\Column(type="integer", nullable=true)
+     * @Groups ("logros")
+     */
+    private $posicion;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -108,6 +115,16 @@ class Logros
     public function setImagen(?string $imagen): void
     {
         $this->imagen = $imagen;
+    }
+
+    public function getPosicion(): ?int
+    {
+        return $this->posicion;
+    }
+
+    public function setPosicion(?int $posicion): void
+    {
+        $this->posicion = $posicion;
     }
 
 }

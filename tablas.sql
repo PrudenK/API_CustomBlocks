@@ -197,7 +197,8 @@ CREATE TABLE logros (
     idLogro INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(255) NOT NULL,
     descripcion TEXT NOT NULL,
-    imagen VARCHAR(255)
+    imagen VARCHAR(255),
+    posicion INT
 );
 
 CREATE TABLE logro_jugador (
@@ -327,4 +328,6 @@ VALUES
     ("¡Mundo 6!", "Completar el mundo 6", "/uploads/logros/Mundo6_apro.jpg"),
     ("¡Mundo 7!", "Completar el mundo 7", "/uploads/logros/Mundo7_apro.jpg"),
     ("¡Mundo 8!", "Completar el mundo 8", "/uploads/logros/Mundo8_apro.jpg"),
-    ("¡Mundo 9!", "Completar el mundo 9", "/uploads/logros/Mundo9_apro.jpg");
+    ("¡Mundo 9!", "Completar el mundo 9", "/uploads/logros/Mundo9_apro.jpg"),
+    ("Aficionado...", "Juega 100 partidas en modo clásico", "/uploads/logros/100clasico.png"),
+    ("Novato", "Juega 10 partidas en modo clásico", "/uploads/logros/10clasico.png"),
