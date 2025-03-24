@@ -317,6 +317,14 @@ VALUES
     (80, 9, "Mundo 9, Nivel 8", "6_26", 250, 6, 0, false, -1, true, 0, true, 1, true, 0, "/0:00:40", 6, 1, "/uploads/mund9/Nivel_9_8.jpg"),
     (81, 9, "Mundo 9, Nivel 9", "0_1_2_3_4_5_6", 150, 30, 0, true, 3, true, 1, true, 1, false, 6000, "/0:02:30", 30, 1, "/uploads/mund9/Nivel_9_9.jpg");
 
-INSERT INTO logros (nombre, descripcion)
+INSERT INTO logros (nombre, descripcion, imagen)
 VALUES
-    ("¡Mundo 1!", "Completar el mundo 1");
+    ("¡Mundo 1!", "Completar el mundo 1", "/uploads/logros/Mundo1_apro.jpg"),
+    ("¡Mundo 2!", "Completar el mundo 2", "/uploads/logros/Mundo2_apro.jpg"),
+    ("¡Mundo 3!", "Completar el mundo 3", "/uploads/logros/Mundo3_apro.jpg"),
+    ("¡Mundo 4!", "Completar el mundo 4", "/uploads/logros/Mundo4_apro.jpg"),
+    ("¡Mundo 5!", "Completar el mundo 5", "/uploads/logros/Mundo5_apro.jpg"),
+    ("¡Mundo 6!", "Completar el mundo 6", "/uploads/logros/Mundo6_apro.jpg"),
+    ("¡Mundo 7!", "Completar el mundo 7", "/uploads/logros/Mundo7_apro.jpg"),
+    ("¡Mundo 8!", "Completar el mundo 8", "/uploads/logros/Mundo8_apro.jpg"),
+    ("¡Mundo 9!", "Completar el mundo 9", "/uploads/logros/Mundo9_apro.jpg");
