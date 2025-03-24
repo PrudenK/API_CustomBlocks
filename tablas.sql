@@ -331,3 +331,4 @@ VALUES
     ("¡Mundo 9!", "Completar el mundo 9", "/uploads/logros/Mundo9_apro.jpg"),
     ("Aficionado...", "Juega 100 partidas en modo clásico", "/uploads/logros/100clasico.png"),
     ("Novato", "Juega 10 partidas en modo clásico", "/uploads/logros/10clasico.png"),
+    ("Nain Nain Nain", "Con esta me cancelan...", "/uploads/logros/4519.png"),
