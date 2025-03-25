@@ -61,13 +61,15 @@ class Clan
      * @var string|null
      *
      * @ORM\Column(name="imagen", type="string", length=255, nullable=true)
+     * @Groups ("clan")
      */
     private $imagen;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="descripcion", type="string", length=75, nullable=true)
+     * @ORM\Column(name="descripcion", type="string", length=200, nullable=true)
+     * @Groups ("clan")
      */
     private $descripcion;
 
@@ -75,6 +77,7 @@ class Clan
      * @var string|null
      *
      * @ORM\Column(name="ubicacion", type="string", length=100, nullable=true)
+     * @Groups ("clan")
      */
     private $ubicacion;
 

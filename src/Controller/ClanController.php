@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Routing\Annotation\Route;;
 
@@ -66,9 +67,6 @@ class ClanController extends AbstractController
             }
         }
 
-
-
-
         $clan = new Clan();
         $clan->setNombre($nombre);
         $clan->setDescripcion($descripcion);
@@ -79,13 +77,19 @@ class ClanController extends AbstractController
         $clan->setIdLider($jugador);
         $clan->setFechaini(new \DateTime());
 
-
+        $jugador->setClan($clan);
 
         $em->persist($clan);
+        $em->persist($jugador);
         $em->flush();
 
 
 
         return new JsonResponse(['mensaje' => 'Clan creado exitosamente'], 201);
     }
+
+
+
+
+
 }

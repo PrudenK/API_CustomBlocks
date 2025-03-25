@@ -42,7 +42,7 @@ class JugadorController extends AbstractController
         $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $id]);
 
         $data = $serializer->serialize(
-            $jugador, 'json', ['groups' => ['jugador'] ] //, 'jugador_logros', 'logros'
+            $jugador, 'json', ['groups' => ['jugador', 'clan'] ] //, 'jugador_logros', 'logros'
         );
 
         return new JsonResponse($data,Response::HTTP_OK, [], true);
@@ -228,5 +228,21 @@ class JugadorController extends AbstractController
         ], JsonResponse::HTTP_OK);
     }
 
+    /**
+     * @Route("/jugador/{id}/clan",methods={"GET"})
+     */
+    public function obtenerClanDelJugador(int $id, EntityManagerInterface $entityManager)
+    {
+        $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $id]);
 
+        $clanDelJugador = $jugador->getClan();
+
+        $idClan = -1;
+
+        if($clanDelJugador) {
+            $idClan = $clanDelJugador->getIdclan();
+        }
+
+        return new JsonResponse($idClan, Response::HTTP_OK);
+    }
 }

@@ -38,7 +38,7 @@ CREATE TABLE clan (
       fechaini DATE,
       idLider INT,
       imagen VARCHAR(255),
-      descripcion VARCHAR(75),
+      descripcion VARCHAR(200),
       ubicacion VARCHAR(100),
       FOREIGN KEY (idLider) REFERENCES jugador(id) ON DELETE CASCADE
 );
