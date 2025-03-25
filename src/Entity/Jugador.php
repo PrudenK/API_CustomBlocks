@@ -138,6 +138,13 @@ class Jugador
      */
     private $mundosJugador;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="online", type="boolean", nullable=false, options={"default": false})
+     * @Groups("jugador")
+     */
+    private $online = false;
 
     /**
      * Constructor
@@ -312,5 +319,15 @@ class Jugador
     public function setMundosJugador($mundosJugador): void
     {
         $this->mundosJugador = $mundosJugador;
+    }
+
+    public function isOnline(): bool
+    {
+        return $this->online;
+    }
+
+    public function setOnline(bool $online): void
+    {
+        $this->online = $online;
     }
 }

@@ -18,6 +18,7 @@ CREATE TABLE jugador (
     experiencia INT,
     clan INT NULL,
     imagen VARCHAR(255),
+    online BOOLEAN,
     FOREIGN KEY (clan) REFERENCES clan(idClan) ON DELETE SET NULL
 );
 
@@ -319,7 +320,7 @@ VALUES
     (81, 9, "Mundo 9, Nivel 9", "0_1_2_3_4_5_6", 150, 30, 0, true, 3, true, 1, true, 1, false, 6000, "/0:02:30", 30, 1, "/uploads/mund9/Nivel_9_9.jpg");
 
 INSERT INTO logros (nombre, descripcion, imagen)
-VALUES
+    VALUES
     ("¡Mundo 1!", "Completar el mundo 1", "/uploads/logros/Mundo1_apro.jpg"),
     ("¡Mundo 2!", "Completar el mundo 2", "/uploads/logros/Mundo2_apro.jpg"),
     ("¡Mundo 3!", "Completar el mundo 3", "/uploads/logros/Mundo3_apro.jpg"),
@@ -339,3 +340,8 @@ VALUES
     ("Par de lineas", "Consigue 1.000 lineas en partidas que no sean custom", "/uploads/logros/1000Lineas.png"),
     ("Bastantes rayas", "Consigue 5.000 lineas en partidas que no sean custom", "/uploads/logros/5kLineas.png"),
     ("Maradona", "Consigue 10.000 lineas en partidas que no sean custom", "/uploads/logros/10kLineas.png"),
+    ("¿Sueño?", "Zzz", "/uploads/logros/zzz.png"),
+    ("Skillsss III", "Llega al nivel 15 en una partida clásica", "/uploads/logros/lv15.png"),
+    ("Skillsss I", "Llega al nivel 5 en una partida clásica", "/uploads/logros/lv5.png"),
+    ("Skillsss II", "Llega al nivel 10 en una partida clásica", "/uploads/logros/lv10.png"),
+    ("Teclado en llamas", "Consgigue 40 lineas en menos de 3 minutos en una partida clásica", "/uploads/logros/tecladoEnLLamas.png"),
