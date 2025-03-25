@@ -34,9 +34,12 @@ CREATE TABLE suscripcion (
 
 CREATE TABLE clan (
       idClan INT AUTO_INCREMENT PRIMARY KEY,
-      nombre VARCHAR(100),
+      nombre VARCHAR(15),
       fechaini DATE,
       idLider INT,
+      imagen VARCHAR(255),
+      descripcion VARCHAR(75),
+      ubicacion VARCHAR(100),
       FOREIGN KEY (idLider) REFERENCES jugador(id) ON DELETE CASCADE
 );
 

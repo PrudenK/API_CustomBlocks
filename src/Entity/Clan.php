@@ -57,6 +57,26 @@ class Clan
      */
     private $jugadores;
 
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="imagen", type="string", length=255, nullable=true)
+     */
+    private $imagen;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="descripcion", type="string", length=75, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="ubicacion", type="string", length=100, nullable=true)
+     */
+    private $ubicacion;
 
     /**
      * Constructor
@@ -114,6 +134,36 @@ class Clan
     public function setJugadores(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $jugadores): void
     {
         $this->jugadores = $jugadores;
+    }
+
+    public function getImagen(): ?string
+    {
+        return $this->imagen;
+    }
+
+    public function setImagen(?string $imagen): void
+    {
+        $this->imagen = $imagen;
+    }
+
+    public function getDescripcion(): ?string
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescripcion(?string $descripcion): void
+    {
+        $this->descripcion = $descripcion;
+    }
+
+    public function getUbicacion(): ?string
+    {
+        return $this->ubicacion;
+    }
+
+    public function setUbicacion(?string $ubicacion): void
+    {
+        $this->ubicacion = $ubicacion;
     }
 
 }
