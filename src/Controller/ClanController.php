@@ -89,7 +89,21 @@ class ClanController extends AbstractController
     }
 
 
+    /**
+     * @Route("/clan/{id}/jugadores",methods={"GET"})
+     */
+    public function obtenerClanDelJugador(int $id, SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    {
+        $clan = $entityManager->getRepository(Clan::class)->findOneBy(["idclan" => $id]);
 
+        $jugadores = $clan->getJugadores();
+
+        $data = $serializer->serialize(
+            $jugadores, 'json', ['groups' => ['jugador', 'clan'] ]
+        );
+
+        return new JsonResponse($data,Response::HTTP_OK, [], true);
+    }
 
 
 }
