@@ -53,7 +53,7 @@ class JugadorController extends AbstractController
      * @Route("/crearJugador",methods={"POST"})
      */
     public function crearJugador(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager)
-    { //TODO retormar implementación cuando tenga creados todos los niveles
+    {
 
         $jsonContent = $request->getContent();
 
