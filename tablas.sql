@@ -19,6 +19,7 @@ CREATE TABLE jugador (
     clan INT NULL,
     imagen VARCHAR(255),
     online BOOLEAN,
+    ultimaVezVisto NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (clan) REFERENCES clan(idClan) ON DELETE SET NULL
 );
 

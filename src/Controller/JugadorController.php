@@ -119,6 +119,10 @@ class JugadorController extends AbstractController
             return new JsonResponse(["error" => "Contraseña incorrecta"], Response::HTTP_UNAUTHORIZED);
         }
 
+        $jugador->setOnline(true);
+        $entityManager->persist($jugador);
+        $entityManager->flush();
+
         return new JsonResponse(["id" => $jugador->getId()], Response::HTTP_OK);
     }
 
@@ -137,6 +141,45 @@ class JugadorController extends AbstractController
         $hashedPassword = hash("sha256", $salt . $contra, true);
         return base64_encode($hashedPassword);
     }
+
+    /**
+     * @Route("/cerrarSesion/{id}",methods={"POST"})
+     */
+    public function cerrarSesion(int $id, EntityManagerInterface $entityManager)
+    {
+        $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $id]);
+
+        if (!$jugador) {
+            return new JsonResponse(["error" => "Usuario no encontrado"], Response::HTTP_NOT_FOUND);
+        }
+
+        $jugador->setOnline(false);
+        $entityManager->persist($jugador);
+        $entityManager->flush();
+
+        return new JsonResponse(["id" => $jugador->getId()], Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/jugador/ping/{id}", methods={"POST"})
+     */
+    public function pingJugador(int $id, EntityManagerInterface $em): JsonResponse
+    {
+        $jugador = $em->getRepository(Jugador::class)->find($id);
+
+        if (!$jugador) {
+            return new JsonResponse(['error' => 'Jugador no encontrado'], Response::HTTP_NOT_FOUND);
+        }
+
+        $jugador->setOnline(true);
+        $jugador->setLastSeen(new \DateTime());
+
+        $em->flush();
+
+        return new JsonResponse(['ok' => true], Response::HTTP_OK);
+    }
+
+
 
     /**
      * @Route("/subirImagen/{id}", methods={"POST"})

@@ -147,6 +147,14 @@ class Jugador
     private $online = false;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_seen", type="datetime", nullable=false, options={"default": "CURRENT_TIMESTAMP"})
+     * @Groups("jugador")
+     */
+    private $lastSeen;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -329,5 +337,15 @@ class Jugador
     public function setOnline(bool $online): void
     {
         $this->online = $online;
+    }
+
+    public function getLastSeen(): \DateTime
+    {
+        return $this->lastSeen;
+    }
+
+    public function setLastSeen(\DateTime $lastSeen): void
+    {
+        $this->lastSeen = $lastSeen;
     }
 }
