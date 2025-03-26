@@ -112,11 +112,21 @@ class ClanController extends AbstractController
     {
         $clan = $entityManager->getRepository(Clan::class)->findOneBy(["idclan" => $id]);
 
-        $data = $serializer->serialize(
-            $clan, 'json', ['groups' => ['clan'] ]
-        );
+        if (!$clan) {
+            return new JsonResponse(['error' => 'Clan no encontrado'], Response::HTTP_NOT_FOUND);
+        }
 
-        return new JsonResponse($data,Response::HTTP_OK, [], true);
+        $data = [
+            'idclan' => $clan->getIdclan(),
+            'nombre' => $clan->getNombre() ?? '',
+            'fechaInit' => $clan->getFechaini() ? $clan->getFechaini()->format('Y-m-d') : null,
+            'idlider' => $clan->getIdlider()->getId(),
+            'imagen' => $clan->getImagen() ?? '',
+            'descripcion' => $clan->getDescripcion() ?? '',
+            'ubicacion' => $clan->getUbicacion() ?? ''
+        ];
+
+        return new JsonResponse($data, Response::HTTP_OK);
     }
 
     /**
