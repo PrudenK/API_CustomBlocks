@@ -144,7 +144,7 @@ class ClanController extends AbstractController
     /**
      * @Route("/clan/{id}/unirse/{idJugador}",methods={"POST"})
      */
-    public function jugadorSeUneAUnClan(int $id, int $idJugador, SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    public function jugadorSeUneAUnClan(int $id, int $idJugador, EntityManagerInterface $entityManager)
     {
         $clan = $entityManager->getRepository(Clan::class)->findOneBy(["idclan" => $id]);
         $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $idJugador]);
@@ -166,6 +166,59 @@ class ClanController extends AbstractController
 
                 $entityManager->remove($clanDelJugador);
             }else{
+                if($clanDelJugador->getIdlider()->getId() === $jugador->getId()) {
+                    $jugadoresDelClanActual = $clanDelJugador->getJugadores();
+
+                    if ($clanDelJugador->getIdlider()->getId() === $jugador->getId()) {
+                        $nuevoLider = $jugadoresDelClanActual
+                            ->filter(function ($j) use ($jugador) {
+                                return $j->getId() !== $jugador->getId();
+                            })
+                            ->toArray();
+
+                        usort($nuevoLider, function ($a, $b) {
+                            return $b->getNivel() <=> $a->getNivel();
+                        });
+
+                        if (!empty($nuevoLider)) {
+                            $clanDelJugador->setIdlider($nuevoLider[0]);
+                        }
+                    }
+                }
+            }
+
+        }
+
+        $jugador->setClan($clan);
+
+        $entityManager->persist($jugador);
+        $entityManager->flush();
+
+        return new JsonResponse("Ok",Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/jugador/{idJugador}/abandonaSuClan",methods={"POST"})
+     */
+    public function jugadorAbandonaClan(int $idJugador, EntityManagerInterface $entityManager)
+    {
+        $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $idJugador]);
+        $clanDelJugador = $jugador->getClan();
+
+
+        if(count($clanDelJugador->getJugadores()) == 1){
+
+            $imagen = $clanDelJugador->getImagen();
+            if ($imagen) {
+                $rutaAbsoluta = __DIR__ . '/../../public' . $imagen;
+                if (file_exists($rutaAbsoluta)) {
+                    unlink($rutaAbsoluta);
+                }
+            }
+
+            $entityManager->remove($clanDelJugador);
+        }else{
+            if($clanDelJugador->getIdlider()->getId() === $jugador->getId()){
                 $jugadoresDelClanActual = $clanDelJugador->getJugadores();
 
                 if ($clanDelJugador->getIdlider()->getId() === $jugador->getId()) {
@@ -184,11 +237,9 @@ class ClanController extends AbstractController
                     }
                 }
             }
-
         }
 
-        $jugador->setClan($clan);
-
+        $jugador->setClan(null);
         $entityManager->persist($jugador);
         $entityManager->flush();
 
