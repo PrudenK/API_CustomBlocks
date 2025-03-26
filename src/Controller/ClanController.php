@@ -122,15 +122,23 @@ class ClanController extends AbstractController
     /**
      * @Route("/clanes",methods={"GET"})
      */
-    public function obtenerTodosLosClanes(SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    public function obtenerTodosLosClanes(EntityManagerInterface $entityManager)
     {
-        $clan = $entityManager->getRepository(Clan::class)->findAll();
+        $clanes = $entityManager->getRepository(Clan::class)->findAll();
 
-        $data = $serializer->serialize(
-            $clan, 'json', ['groups' => ['clan'] ]
-        );
+        $data = [];
 
-        return new JsonResponse($data,Response::HTTP_OK, [], true);
+        foreach ($clanes as $clan) {
+            $data[] = [
+                'idClan' => $clan->getIdclan(),
+                'imagen' => $clan->getImagen() ?? '',
+                'nombre' => $clan->getNombre() ?? '',
+                'miembros' => count($clan->getJugadores()),
+                'ubi' => $clan->getUbicacion() ?? '',
+            ];
+        }
+
+        return new JsonResponse($data, Response::HTTP_OK);
     }
 
 }
