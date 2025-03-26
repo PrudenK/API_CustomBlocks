@@ -141,4 +141,57 @@ class ClanController extends AbstractController
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
+    /**
+     * @Route("/clan/{id}/unirse/{idJugador}",methods={"POST"})
+     */
+    public function jugadorSeUneAUnClan(int $id, int $idJugador, SerializerInterface $serializer, EntityManagerInterface $entityManager)
+    {
+        $clan = $entityManager->getRepository(Clan::class)->findOneBy(["idclan" => $id]);
+        $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $idJugador]);
+
+        $clanDelJugador = $jugador->getClan();
+
+        if($clanDelJugador){
+            if(count($clanDelJugador->getJugadores()) == 1){
+
+
+                $imagen = $clanDelJugador->getImagen();
+                if ($imagen) {
+                    $rutaAbsoluta = __DIR__ . '/../../public' . $imagen;
+                    if (file_exists($rutaAbsoluta)) {
+                        unlink($rutaAbsoluta);
+                    }
+                }
+
+
+                $entityManager->remove($clanDelJugador);
+            }else{
+                $jugadoresDelClanActual = $clanDelJugador->getJugadores();
+
+                if ($clanDelJugador->getIdlider()->getId() === $jugador->getId()) {
+                    $nuevoLider = $jugadoresDelClanActual
+                        ->filter(function ($j) use ($jugador) {
+                            return $j->getId() !== $jugador->getId();
+                        })
+                        ->toArray();
+
+                    usort($nuevoLider, function ($a, $b) {
+                        return $b->getNivel() <=> $a->getNivel();
+                    });
+
+                    if (!empty($nuevoLider)) {
+                        $clanDelJugador->setIdlider($nuevoLider[0]);
+                    }
+                }
+            }
+
+        }
+
+        $jugador->setClan($clan);
+
+        $entityManager->persist($jugador);
+        $entityManager->flush();
+
+        return new JsonResponse("Ok",Response::HTTP_OK);
+    }
 }
