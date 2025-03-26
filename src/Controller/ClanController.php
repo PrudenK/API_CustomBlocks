@@ -19,7 +19,7 @@ class ClanController extends AbstractController
     /**
      * @Route("/crearClan",methods={"POST"})
      */
-    public function crearClan(Request $request, EntityManagerInterface $em)
+    public function crearClan(Request $request, EntityManagerInterface $em, SerializerInterface $serializer)
     {
         $nombre = $request->request->get('nombre');
 
@@ -83,9 +83,12 @@ class ClanController extends AbstractController
         $em->persist($jugador);
         $em->flush();
 
+        $data = $serializer->serialize(
+            $clan, 'json', ['groups' => ['clan'] ]
+        );
 
+        return new JsonResponse($data,Response::HTTP_CREATED, [], true);
 
-        return new JsonResponse(['mensaje' => 'Clan creado exitosamente'], 201);
     }
 
 

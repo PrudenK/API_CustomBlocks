@@ -349,3 +349,4 @@ INSERT INTO logros (nombre, descripcion, imagen)
     ("Skillsss I", "Llega al nivel 5 en una partida clásica", "/uploads/logros/lv5.png"),
     ("Skillsss II", "Llega al nivel 10 en una partida clásica", "/uploads/logros/lv10.png"),
     ("Teclado en llamas", "Consgigue 40 lineas en menos de 3 minutos en una partida clásica", "/uploads/logros/tecladoEnLLamas.png"),
+    ("Vida social", "Unete a un clan o crea uno", "/uploads/logros/clan.png"),
