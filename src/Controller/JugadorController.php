@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Clan;
 use App\Entity\Estapiezas;
 use App\Entity\Jugador;
 use App\Entity\Mundo;
@@ -242,6 +243,20 @@ class JugadorController extends AbstractController
         if($clanDelJugador) {
             $idClan = $clanDelJugador->getIdclan();
         }
+
+        return new JsonResponse($idClan, Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/jugador/{id}/esLider",methods={"GET"})
+     */
+    public function getSiJugadorEsLiderDeUnClan(int $id, EntityManagerInterface $entityManager): JsonResponse
+    {
+        $clan = $entityManager->getRepository(Clan::class)->findOneBy([
+            'idlider' => $id
+        ]);
+
+        $idClan = $clan ? $clan->getIdclan() : -1;
 
         return new JsonResponse($idClan, Response::HTTP_OK);
     }
