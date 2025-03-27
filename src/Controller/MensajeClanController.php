@@ -38,4 +38,20 @@ class MensajeClanController extends AbstractController
         return new JsonResponse(['status' => 'ok'], 201);
     }
 
+    /**
+     * @Route("/mensajesDelClan/{idClan}", methods={"GET"})
+     */
+    public function obtenerMensajes(int $idClan, EntityManagerInterface $em, SerializerInterface $serializer): JsonResponse
+    {
+        $clan = $em->getRepository(Clan::class)->findOneBy(["idclan" => $idClan]);
+
+        $mensajes = $em->getRepository(MensajeClan::class)->findBy(
+            ['clan' => $clan],
+            ['fecha' => 'ASC']
+        );
+
+        $data = $serializer->serialize($mensajes, 'json', ['groups' => ['mensaje_clan']]);
+
+        return new JsonResponse($data, 200, [], true);
+    }
 }
