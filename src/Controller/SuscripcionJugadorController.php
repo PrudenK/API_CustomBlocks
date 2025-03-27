@@ -56,4 +56,41 @@ class SuscripcionJugadorController extends AbstractController
 
         return new JsonResponse($data, Response::HTTP_CREATED, [], true);
     }
+
+    /**
+     * @Route("/comprobarSuscripcionJugador/{idJugador}", methods={"GET"})
+     */
+    public function getSuscripcionActiva(
+        int $idJugador,
+        EntityManagerInterface $entityManager
+    ): JsonResponse {
+        $jugador = $entityManager->getRepository(Jugador::class)->find($idJugador);
+
+        $fechaActual = new \DateTime();
+
+        if ($jugador) {
+            $suscripcionesJugador = $entityManager->getRepository(SuscripcionJugador::class)->findBy([
+                'jugador' => $jugador
+            ]);
+
+            foreach ($suscripcionesJugador as $suscripcionJugador) {
+                $fechaFin = new \DateTime($suscripcionJugador->getFechafin());
+                if ($fechaFin >= $fechaActual) {
+                    return new JsonResponse([
+                        'tipo' => $suscripcionJugador->getTipo()->getTipo(),
+                        'fechainicio' => $suscripcionJugador->getFechainicio(),
+                        'fechafin' => $suscripcionJugador->getFechafin()
+                    ], Response::HTTP_OK);
+                }
+            }
+        }
+
+        return new JsonResponse([
+            'tipo' => -1,
+            'fechainicio' => '',
+            'fechafin' => ''
+        ], Response::HTTP_OK);
+    }
+
+
 }
