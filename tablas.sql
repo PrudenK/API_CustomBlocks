@@ -43,6 +43,15 @@ CREATE TABLE clan (
       FOREIGN KEY (idLider) REFERENCES jugador(id) ON DELETE CASCADE
 );
 
+CREATE TABLE mensaje_clan (
+      idMensaje INT AUTO_INCREMENT PRIMARY KEY,
+      idClan INT NOT NULL,
+      remitente VARCHAR(100) NOT NULL,
+      mensaje TEXT NOT NULL,
+      fecha DATETIME NOT NULL,
+      CONSTRAINT fk_mensaje_clan_clan FOREIGN KEY (idClan) REFERENCES clan(idClan) ON DELETE CASCADE
+);
+
 
 CREATE TABLE suscripcion_jugador (
      idJugador    INT,
