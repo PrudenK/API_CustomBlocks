@@ -187,25 +187,27 @@ CREATE TABLE nivel_jugador (
    FOREIGN KEY (idNivel) REFERENCES nivel(idNivel) ON DELETE CASCADE
 );
 
-CREATE TABLE modos_juego(
-    idJugador INT,
-    idNumModo INT,
-    nombre VARCHAR(255),
-    arrayPiezas VARCHAR(255),
-    tablero VARCHAR(20),
-    tipoPieza INT,
-    tipoTableroSecun INT,
-    tipoTableroPrincipal INT,
-    tiempoCaidaInicial INT,
-    lineasParaSaltoNivel INT,
-    saltoDeTiempoPorNivel INT,
-    limiteRotaciones INT,
-    hold INT,
-    piezas INT,
-    dashes INT,
-    PRIMARY KEY (idJugador, idNumModo),
-    FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE
+CREATE TABLE modos_juego (
+     idJugador INT,
+     idNumModo INT,
+     nombre VARCHAR(255),
+     imagen VARCHAR(255),
+     arrayPiezas VARCHAR(255),
+     tablero INT,
+     tipoPieza INT,
+     tipoTableroSecun INT,
+     tipoTableroPrincipal INT,
+     tiempoCaidaInicial INT,
+     lineasParaSaltoNivel INT,
+     saltoDeTiempoPorNivel INT,
+     limiteRotaciones INT,
+     hold INT,
+     piezas INT,
+     dashes INT,
+     PRIMARY KEY (idJugador, idNumModo),
+     FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE
 );
+
 
 CREATE TABLE logros (
     idLogro INT PRIMARY KEY AUTO_INCREMENT,

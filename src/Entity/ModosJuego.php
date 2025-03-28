@@ -40,9 +40,9 @@ class ModosJuego
     private $arraypiezas;
 
     /**
-     * @var string|null
+     * @var int|null
      *
-     * @ORM\Column(name="tablero", type="string", length=20, nullable=true)
+     * @ORM\Column(name="tablero", type="integer", nullable=true)
      * @Groups ("modoJuego")
      */
     private $tablero;
@@ -136,6 +136,14 @@ class ModosJuego
      */
     private $jugador;
 
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="imagen", type="string", length=255, nullable=true)
+     * @Groups ("modoJuego")
+     */
+    private $imagen;
+
     public function getIdnummodo(): int
     {
         return $this->idnummodo;
@@ -164,16 +172,6 @@ class ModosJuego
     public function setArraypiezas(?string $arraypiezas): void
     {
         $this->arraypiezas = $arraypiezas;
-    }
-
-    public function getTablero(): ?string
-    {
-        return $this->tablero;
-    }
-
-    public function setTablero(?string $tablero): void
-    {
-        $this->tablero = $tablero;
     }
 
     public function getTipopieza(): ?int
@@ -286,5 +284,23 @@ class ModosJuego
         $this->jugador = $jugador;
     }
 
+    public function getImagen(): ?string
+    {
+        return $this->imagen;
+    }
 
+    public function setImagen(?string $imagen): void
+    {
+        $this->imagen = $imagen;
+    }
+
+    public function getTablero(): ?int
+    {
+        return $this->tablero;
+    }
+
+    public function setTablero(?int $tablero): void
+    {
+        $this->tablero = $tablero;
+    }
 }
