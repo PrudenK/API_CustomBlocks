@@ -80,5 +80,18 @@ class ModoDeJuegoController extends AbstractController
         ], 201);
     }
 
+    /**
+     * @Route("/modosJugador/{idJugador}",methods={"GET"})
+     */
+    public function getTodosModosPorJugador(int $idJugador, Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager): Response {
+        $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $idJugador]);
 
+        $modosDeJuego = $entityManager->getRepository(ModosJuego::class)->findBy(["jugador" => $jugador]);
+
+        $data = $serializer->serialize(
+            $modosDeJuego, 'json', ['groups' => ['modoJuego'] ]
+        );
+
+        return new JsonResponse($data,Response::HTTP_OK, [], true);
+    }
 }
