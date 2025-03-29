@@ -74,10 +74,13 @@ class ModoDeJuegoController extends AbstractController
         $entityManager->persist($modoJuego);
         $entityManager->flush();
 
-        return new JsonResponse([
-            "mensaje" => "Modo de juego creado correctamente",
-            "rutaImagen" => $modoJuego->getImagen()
-        ], 201);
+        $modosDeJuego = $entityManager->getRepository(ModosJuego::class)->findBy(["jugador" => $jugador]);
+
+        $data = $serializer->serialize(
+            $modosDeJuego, 'json', ['groups' => ['modoJuego'] ]
+        );
+
+        return new JsonResponse($data,Response::HTTP_OK, [], true);
     }
 
     /**
