@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\DTO\JugadorInicioSesionDTO;
 use App\Entity\Clan;
 use App\Entity\Estapiezas;
 use App\Entity\Jugador;
