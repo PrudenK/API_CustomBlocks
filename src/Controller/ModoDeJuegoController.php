@@ -60,17 +60,6 @@ class ModoDeJuegoController extends AbstractController
             }
         }
 
-        $ultimoModo = $entityManager->getRepository(ModosJuego::class)
-            ->createQueryBuilder('m')
-            ->select('MAX(m.idnummodo)')
-            ->where('m.jugador = :jugador')
-            ->setParameter('jugador', $jugador)
-            ->getQuery()
-            ->getSingleScalarResult();
-
-        $nuevoIdNumModo = ($ultimoModo ?? 0) + 1;
-        $modoJuego->setIdnummodo($nuevoIdNumModo);
-
         $entityManager->persist($modoJuego);
         $entityManager->flush();
 
