@@ -225,6 +225,37 @@ CREATE TABLE logro_jugador (
    FOREIGN KEY (idLogro) REFERENCES logros(idLogro) ON DELETE CASCADE
 );
 
+CREATE TABLE partida_guardada (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  idJugador INT NOT NULL,
+  numPartidaGuardada INT NOT NULL,
+  modo VARCHAR(50) NOT NULL,
+  tiempo VARCHAR(20) NOT NULL,
+  puntuacion INT NOT NULL,
+  lineas INT NOT NULL,
+  nivel INT NOT NULL,
+  tableroPartida JSON NOT NULL,
+  tamaTablero INT NOT NULL,
+  diseTablero INT NOT NULL,
+  diseTableroSecun INT NOT NULL,
+  siguientesPiezasActivo INT NOT NULL,
+  siguientesPiezas VARCHAR(255) NOT NULL,
+  arrayPiezas VARCHAR(255) NOT NULL,
+  disePiezas INT NOT NULL,
+  holdActivo INT NOT NULL,
+  dashActivo INT NOT NULL,
+  velocidadCaidaActual INT NOT NULL,
+  lineasParaSaltoDeNivel INT NOT NULL,
+  saltoDeTiempoPorNivel INT NOT NULL,
+  limiteRotaciones INT NOT NULL,
+  piezaActual VARCHAR(50) NOT NULL,
+  posicionPiezaActual VARCHAR(100) NOT NULL,
+  numRotacionesDeLaPiezaActual INT NOT NULL,
+
+  CONSTRAINT fk_partida_jugador FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE
+);
+
+
 DELETE FROM suscripcion;
 
 INSERT INTO suscripcion (tipo, nombre, precio, numModos, numPartidasGuardadas, imagen)
