@@ -144,6 +144,18 @@ class InicioSesionController extends AbstractController
             ];
         }, $nivelesJugador);
 
+
+        $partidasGuardadas = $em->getRepository(\App\Entity\PartidaGuardada::class)->findBy([
+            'idJugador' => $jugador
+        ]);
+
+        $dto->listaPartidasGuardadas = json_decode(
+            $serializer->serialize($partidasGuardadas, 'json', ['groups' => ['partidaGuardada']]),
+            true
+        );
+
+
+
         // Lista de suscripciones (todas)
         $dto->listaSuscripciones = json_decode(
             $serializer->serialize($em->getRepository(\App\Entity\Suscripcion::class)->findAll(), 'json', ['groups' => ['suscripcion']]),

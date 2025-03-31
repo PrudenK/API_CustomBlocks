@@ -263,7 +263,7 @@ INSERT INTO suscripcion (tipo, nombre, precio, numModos, numPartidasGuardadas, i
 VALUES
     (1, 'Plan básico', '1.99€', 3, 3, "/uploads/images/estrellas1de3.jpg"),
     (2, 'Plan Fit me', '4.99€', 6, 6,"/uploads/images/estrellas2de3.jpg"),
-    (3, 'Plan Ultra Mega GOD', '6.99€', 9, 9,"/uploads/images/estrellas3de3.jpg");
+    (3, 'Plan Ultra Mega', '6.99€', 9, 9,"/uploads/images/estrellas3de3.jpg");
 
 
 INSERT INTO mundo (idMundo, imagen)

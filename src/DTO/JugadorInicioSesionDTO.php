@@ -25,4 +25,5 @@ class JugadorInicioSesionDTO
     public array $listaMundosJugador;
     public array $listaNivelesJugador;
     public array $listaSuscripciones;
+    public array $listaPartidasGuardadas;
 }
