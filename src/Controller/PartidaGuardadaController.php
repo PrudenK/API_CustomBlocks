@@ -55,6 +55,7 @@ class PartidaGuardadaController extends AbstractController
             $partida->setDisePiezas($dto->disePiezas);
             $partida->setHoldActivo($dto->holdActivo);
             $partida->setDashActivo($dto->dashActivo);
+            $partida->setPiezaEnHold($dto->piezaEnHold);
             $partida->setVelocidadCaidaActual($dto->velocidadCaidaActual);
             $partida->setLineasParaSaltoDeNivel($dto->lineasParaSaltoDeNivel);
             $partida->setSaltoDeTiempoPorNivel($dto->saltoDeTiempoPorNivel);

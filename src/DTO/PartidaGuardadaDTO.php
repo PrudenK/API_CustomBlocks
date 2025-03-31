@@ -21,6 +21,7 @@ class PartidaGuardadaDTO
     public int $disePiezas;
     public int $holdActivo;
     public int $dashActivo;
+    public string $piezaEnHold;
     public int $velocidadCaidaActual;
     public int $lineasParaSaltoDeNivel;
     public int $saltoDeTiempoPorNivel;

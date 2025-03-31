@@ -129,6 +129,12 @@ class PartidaGuardada
     private $dashActivo;
 
     /**
+     * @ORM\Column(type="string")
+     * @Groups({"partidaGuardada"})
+     */
+    private $piezaEnHold;
+
+    /**
      * @ORM\Column(type="integer")
      * @Groups({"partidaGuardada"})
      */
@@ -421,4 +427,16 @@ class PartidaGuardada
     {
         $this->numRotacionesDeLaPiezaActual = $valor;
     }
+
+    public function getPiezaEnHold()
+    {
+        return $this->piezaEnHold;
+    }
+
+    public function setPiezaEnHold($piezaEnHold): void
+    {
+        $this->piezaEnHold = $piezaEnHold;
+    }
+
+
 }
