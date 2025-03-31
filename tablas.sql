@@ -227,6 +227,7 @@ CREATE TABLE logro_jugador (
 
 CREATE TABLE partida_guardada (
   id INT AUTO_INCREMENT PRIMARY KEY,
+  imagen VARCHAR(255),
   idJugador INT NOT NULL,
   numPartidaGuardada INT NOT NULL,
   modo VARCHAR(50) NOT NULL,
@@ -244,6 +245,7 @@ CREATE TABLE partida_guardada (
   disePiezas INT NOT NULL,
   holdActivo INT NOT NULL,
   dashActivo INT NOT NULL,
+  piezaEnHold VARCHAR(20),
   velocidadCaidaActual INT NOT NULL,
   lineasParaSaltoDeNivel INT NOT NULL,
   saltoDeTiempoPorNivel INT NOT NULL,
