@@ -24,12 +24,6 @@ class PartidaGuardada
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @Groups({"partidaGuardada"})
-     */
-    private $imagen;
-
-    /**
      * @var Jugador
      *
      * @ORM\ManyToOne(targetEntity="Jugador")
@@ -442,14 +436,5 @@ class PartidaGuardada
     public function setPiezaEnHold($piezaEnHold): void
     {
         $this->piezaEnHold = $piezaEnHold;
-    }
-    public function getImagen()
-    {
-        return $this->imagen;
-    }
-    
-    public function setImagen($imagen): void
-    {
-        $this->imagen = $imagen;
     }
 }
