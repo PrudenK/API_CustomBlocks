@@ -84,4 +84,37 @@ class PartidaGuardadaController extends AbstractController
             ], 500);
         }
     }
+
+    /**
+     * @Route("/eliminarPartidaGuardada/{idJugador}/{numPartidaGuardada}", methods={"DELETE"})
+     */
+    public function eliminarPartidaGuardada(int $idJugador, int $numPartidaGuardada, EntityManagerInterface $em): JsonResponse {
+        try {
+            $jugador = $em->getRepository(Jugador::class)->findOneBy(["id" => $idJugador]);
+
+            if (!$jugador) {
+                return new JsonResponse(['error' => 'Jugador no encontrado'], 404);
+            }
+
+            $partida = $em->getRepository(PartidaGuardada::class)->findOneBy([
+                'idJugador' => $jugador,
+                'numPartidaGuardada' => $numPartidaGuardada
+            ]);
+
+            if (!$partida) {
+                return new JsonResponse(['error' => 'Partida no encontrada'], 404);
+            }
+
+            $em->remove($partida);
+            $em->flush();
+
+            return new JsonResponse(['success' => true, 'mensaje' => 'Partida eliminada'], 200);
+        } catch (\Exception $e) {
+            return new JsonResponse([
+                'success' => false,
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
+
 }
