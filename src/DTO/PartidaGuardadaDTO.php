@@ -30,4 +30,5 @@ class PartidaGuardadaDTO
     public string $piezaActual;
     public string $posicionPiezaActual;
     public int $numRotacionesDeLaPiezaActual;
+    public int $estadoMascara;
 }

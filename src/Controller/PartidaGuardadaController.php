@@ -64,6 +64,7 @@ class PartidaGuardadaController extends AbstractController
             $partida->setPiezaActual($dto->piezaActual);
             $partida->setPosicionPiezaActual($dto->posicionPiezaActual);
             $partida->setNumRotacionesDeLaPiezaActual($dto->numRotacionesDeLaPiezaActual);
+            $partida->setEstadoMascara($dto->estadoMascara);
 
             $em->persist($partida);
             $em->flush();

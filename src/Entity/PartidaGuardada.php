@@ -182,6 +182,13 @@ class PartidaGuardada
      */
     private $numRotacionesDeLaPiezaActual;
 
+
+    /**
+     * @ORM\Column(type="integer")
+     * @Groups({"partidaGuardada"})
+     */
+    private $estadoMascara;
+
     // Constructor
     public function __construct()
     {
@@ -443,21 +450,21 @@ class PartidaGuardada
     {
         $this->piezaEnHold = $piezaEnHold;
     }
-
-    /**
-     * @return mixed
-     */
     public function getPuedeHoldear()
     {
         return $this->puedeHoldear;
     }
-
-    /**
-     * @param mixed $puedeHoldear
-     */
     public function setPuedeHoldear($puedeHoldear): void
     {
         $this->puedeHoldear = $puedeHoldear;
     }
 
+    public function getEstadoMascara()
+    {
+        return $this->estadoMascara;
+    }
+    public function setEstadoMascara($estadoMascara): void
+    {
+        $this->estadoMascara = $estadoMascara;
+    }
 }
