@@ -138,6 +138,12 @@ class PartidaGuardada
      * @ORM\Column(type="integer")
      * @Groups({"partidaGuardada"})
      */
+    private $puedeHoldear;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @Groups({"partidaGuardada"})
+     */
     private $velocidadCaidaActual;
 
     /**
@@ -437,4 +443,21 @@ class PartidaGuardada
     {
         $this->piezaEnHold = $piezaEnHold;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPuedeHoldear()
+    {
+        return $this->puedeHoldear;
+    }
+
+    /**
+     * @param mixed $puedeHoldear
+     */
+    public function setPuedeHoldear($puedeHoldear): void
+    {
+        $this->puedeHoldear = $puedeHoldear;
+    }
+
 }

@@ -56,6 +56,7 @@ class PartidaGuardadaController extends AbstractController
             $partida->setHoldActivo($dto->holdActivo);
             $partida->setDashActivo($dto->dashActivo);
             $partida->setPiezaEnHold($dto->piezaEnHold);
+            $partida->setPuedeHoldear($dto->puedeHoldear);
             $partida->setVelocidadCaidaActual($dto->velocidadCaidaActual);
             $partida->setLineasParaSaltoDeNivel($dto->lineasParaSaltoDeNivel);
             $partida->setSaltoDeTiempoPorNivel($dto->saltoDeTiempoPorNivel);
@@ -67,7 +68,15 @@ class PartidaGuardadaController extends AbstractController
             $em->persist($partida);
             $em->flush();
 
-            return new JsonResponse(['success' => true, 'id' => $partida->getId()], 201);
+            $partidasGuardadas = $em->getRepository(\App\Entity\PartidaGuardada::class)->findBy([
+                'idJugador' => $jugador
+            ]);
+
+            $data = $serializer->serialize(
+                $partidasGuardadas, 'json', ['groups' => ['partidaGuardada'] ]
+            );
+
+            return new JsonResponse($data,Response::HTTP_OK, [], true);
         } catch (\Exception $e) {
             return new JsonResponse([
                 'success' => false,
