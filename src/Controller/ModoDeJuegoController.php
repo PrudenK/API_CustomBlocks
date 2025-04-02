@@ -104,6 +104,15 @@ class ModoDeJuegoController extends AbstractController
             return new JsonResponse(['error' => 'Modo de juego no encontrado para este jugador'], 404);
         }
 
+        $imagenPath = $modoJugador->getImagen(); // Ej: /uploads/modosDeJuego/imagen123.jpg
+        if ($imagenPath) {
+            $fullPath = $this->getParameter('kernel.project_dir') . '/public' . $imagenPath;
+            if (file_exists($fullPath)) {
+                @unlink($fullPath); // Elimina la imagen físicamente
+            }
+        }
+
+
         $em->remove($modoJugador);
         $em->flush();
 
