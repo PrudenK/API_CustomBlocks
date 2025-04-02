@@ -86,4 +86,29 @@ class ModoDeJuegoController extends AbstractController
 
         return new JsonResponse($data,Response::HTTP_OK, [], true);
     }
+
+    /**
+     * @Route("/modoJuego/{idJugador}/{idNumModo}", methods={"DELETE"})
+     */
+    public function eliminarModoDeJuego(int $idJugador, int $idNumModo, EntityManagerInterface $em): JsonResponse
+    {
+        $jugador = $em->getRepository(Jugador::class)->findOneBy(["id" => $idJugador]);
+
+
+        $modoJugador = $em->getRepository(ModosJuego::class)->findOneBy([
+            'jugador' => $jugador,
+            'idnummodo' => $idNumModo
+        ]);
+
+        if (!$modoJugador) {
+            return new JsonResponse(['error' => 'Modo de juego no encontrado para este jugador'], 404);
+        }
+
+        $em->remove($modoJugador);
+        $em->flush();
+
+        return new JsonResponse(['success' => true, 'mensaje' => 'Modo de juego eliminado'], 200);
+    }
+
+
 }

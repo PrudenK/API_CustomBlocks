@@ -229,7 +229,7 @@ CREATE TABLE partida_guardada (
   id INT AUTO_INCREMENT PRIMARY KEY,
   idJugador INT NOT NULL,
   numPartidaGuardada INT NOT NULL,
-  modo VARCHAR(50) NOT NULL,
+  modo VARCHAR(20) NOT NULL,
   tiempo VARCHAR(20) NOT NULL,
   puntuacion INT NOT NULL,
   lineas INT NOT NULL,
@@ -244,7 +244,8 @@ CREATE TABLE partida_guardada (
   disePiezas INT NOT NULL,
   holdActivo INT NOT NULL,
   dashActivo INT NOT NULL,
-  piezaEnHold VARCHAR(20),
+  piezaEnHold VARCHAR(255) NOT NULL,
+  puedeHoldear INT NOT NULL,
   velocidadCaidaActual INT NOT NULL,
   lineasParaSaltoDeNivel INT NOT NULL,
   saltoDeTiempoPorNivel INT NOT NULL,
@@ -252,8 +253,9 @@ CREATE TABLE partida_guardada (
   piezaActual VARCHAR(50) NOT NULL,
   posicionPiezaActual VARCHAR(100) NOT NULL,
   numRotacionesDeLaPiezaActual INT NOT NULL,
+  estadoMascara INT NOT NULL,
 
-  CONSTRAINT fk_partida_jugador FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE
+  CONSTRAINT FK_partida_guardada_jugador FOREIGN KEY (idJugador) REFERENCES jugador(id)
 );
 
 
