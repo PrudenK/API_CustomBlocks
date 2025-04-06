@@ -261,4 +261,24 @@ class JugadorController extends AbstractController
 
         return new JsonResponse($idClan, Response::HTTP_OK);
     }
+
+    /**
+     * @Route("/jugador/{id}/actualizarExp",methods={"POST"})
+     */
+    public function actualizarExperiencia(int $id, EntityManagerInterface $entityManager, Request $request): JsonResponse
+    {
+        $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $id]);
+
+        $exp = $request->request->get('exp');
+        $nivel = $request->request->get('nivel');
+
+        $jugador->setExperiencia($exp);
+        $jugador->setNivel($nivel);
+
+        $entityManager->persist($jugador);
+        $entityManager->flush();
+
+        return new JsonResponse("ok", Response::HTTP_OK);
+    }
+
 }
