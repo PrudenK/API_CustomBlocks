@@ -259,6 +259,20 @@ CREATE TABLE partida_guardada (
 );
 
 
+CREATE TABLE partida_pvp (
+     id INT AUTO_INCREMENT PRIMARY KEY,
+     host INT NOT NULL,
+     visitante INT NOT NULL,
+     modo VARCHAR(50),
+     resultado VARCHAR(50),
+     fecha DATETIME NOT NULL,
+
+     FOREIGN KEY (host) REFERENCES jugador(id) ON DELETE CASCADE,
+     FOREIGN KEY (visitante) REFERENCES jugador(id) ON DELETE CASCADE
+);
+
+
+
 DELETE FROM suscripcion;
 
 INSERT INTO suscripcion (tipo, nombre, precio, numModos, numPartidasGuardadas, imagen)
