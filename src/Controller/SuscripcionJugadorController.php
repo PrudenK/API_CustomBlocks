@@ -23,21 +23,16 @@ class SuscripcionJugadorController extends AbstractController
         $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(["id" => $idJugador]);
         $suscripcion = $entityManager->getRepository(Suscripcion::class)->findOneBy(["tipo" => $tipo]);
 
-        $fechaActual = new \DateTime();
-
-        $suscripcionesJugador = $entityManager->getRepository(SuscripcionJugador::class)->findBy([
-            'jugador' => $jugador
-        ]);
-
-        foreach ($suscripcionesJugador as $suscripcionJugador) {
-            $fechaFin = new \DateTime($suscripcionJugador->getFechafin());
-            if ($fechaFin >= $fechaActual) {
-                return new JsonResponse('Ya tienes una suscripción activa', Response::HTTP_CONFLICT);
-            }
-        }
 
         $fechaInicio = new \DateTime();
         $fechaFin = (clone $fechaInicio)->modify('+31 days');
+
+        $posibleFechaRepetida = $entityManager->getRepository(SuscripcionJugador::class)->findOneBy(["jugador" => $jugador, "fechafin" => $fechaFin->format('Y-m-d')]);
+
+        if($posibleFechaRepetida){
+            $entityManager->remove($posibleFechaRepetida);
+            $entityManager->flush();
+        }
 
         $nuevaSuscripcionJugador = new SuscripcionJugador();
         $nuevaSuscripcionJugador->setJugador($jugador);
