@@ -281,4 +281,31 @@ class JugadorController extends AbstractController
         return new JsonResponse("ok", Response::HTTP_OK);
     }
 
+    /**
+     * @Route("/jugador/{id}/posicion", methods={"GET"})
+     */
+    public function getPosicionJugadorPorExperiencia(int $id, EntityManagerInterface $entityManager): JsonResponse
+    {
+        $jugador = $entityManager->getRepository(Jugador::class)->find($id);
+
+        if (!$jugador) {
+            return new JsonResponse(["error" => "Jugador no encontrado"], Response::HTTP_NOT_FOUND);
+        }
+
+        $experienciaJugador = $jugador->getExperiencia() ?? 0;
+
+        $qb = $entityManager->createQueryBuilder();
+
+        $qb->select('COUNT(j.id)')
+            ->from(Jugador::class, 'j')
+            ->where('j.experiencia > :exp')
+            ->setParameter('exp', $experienciaJugador);
+
+        $jugadoresConMasExp = $qb->getQuery()->getSingleScalarResult();
+
+        $posicion = (int)$jugadoresConMasExp + 1;
+
+        return new JsonResponse($posicion, Response::HTTP_OK);
+    }
+
 }
