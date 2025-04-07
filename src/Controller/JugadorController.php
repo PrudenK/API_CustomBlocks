@@ -30,7 +30,7 @@ class JugadorController extends AbstractController
         $jugadores = $entityManager->getRepository(Jugador::class)->findAll();
 
         $data = $serializer->serialize(
-            $jugadores, 'json', ['groups' => ['jugador', 'jugador_logros', 'logros'] ]
+            $jugadores, 'json', ['groups' => ['jugador', 'jugador_logros', 'logros', 'clan'] ]
         );
 
         return new JsonResponse($data,Response::HTTP_OK, [], true);
