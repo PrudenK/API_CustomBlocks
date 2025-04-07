@@ -40,4 +40,43 @@ class PartidaPVPController extends AbstractController
 
         return new JsonResponse(["message" => "Partida PVP guardada con éxito"], Response::HTTP_CREATED);
     }
+
+    /**
+     * @Route("/getPartidasJugador/{id}", methods={"GET"})
+     */
+    public function getPartidasPVPporUsuario(
+        int $id,
+        SerializerInterface $serializer,
+        EntityManagerInterface $entityManager
+    ): JsonResponse {
+        $jugador = $entityManager->getRepository(Jugador::class)->find($id);
+
+        if (!$jugador) {
+            return new JsonResponse(['error' => 'Jugador no encontrado'], JsonResponse::HTTP_NOT_FOUND);
+        }
+
+        $repo = $entityManager->getRepository(\App\Entity\PartidaPvp::class);
+
+        $comoHost = $repo->findBy(['host' => $jugador]);
+        $comoVisitante = $repo->findBy(['visitante' => $jugador]);
+
+        $partidas = array_merge($comoHost, $comoVisitante);
+
+        $partidasFormateadas = [];
+
+        foreach ($partidas as $pvp) {
+            $partidasFormateadas[] = [
+                'id' => $pvp->getId(),
+                'host' => $pvp->getHost()->getNombre(),
+                'visitante' => $pvp->getVisitante()->getNombre(),
+                'modo' => $pvp->getModo(),
+                'resultado' => $pvp->getResultado(),
+                'fecha' => $pvp->getFecha()->format('Y-m-d H:i:s')
+            ];
+        }
+
+        return new JsonResponse($partidasFormateadas, JsonResponse::HTTP_OK);
+    }
+
+
 }
