@@ -18,7 +18,6 @@ class ModosJuego
      *
      * @ORM\Column(name="idNumModo", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      * @Groups ("modoJuego")
      */
     private $idnummodo;
@@ -130,6 +129,7 @@ class ModosJuego
     /**
      * @var Jugador
      *
+     * @ORM\Id
      * @ORM\ManyToOne(targetEntity="Jugador", inversedBy="modosJuego")
      * @ORM\JoinColumn(name="idJugador", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      * @Groups ("modoJuego")

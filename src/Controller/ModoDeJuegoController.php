@@ -25,11 +25,13 @@ class ModoDeJuegoController extends AbstractController
     public function crearModoJuego(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager): Response {
         $modoJuegoJson = $request->request->get('modoJuego');
 
+
         if (!$modoJuegoJson) {
             return new JsonResponse(["error" => "No se recibió el objeto modoJuego"], 400);
         }
 
         $data = json_decode($modoJuegoJson, true);
+
 
         if (!isset($data['idJugador'])) {
             return new JsonResponse(["error" => "idJugador no proporcionado"], 400);
@@ -45,6 +47,12 @@ class ModoDeJuegoController extends AbstractController
         $modoJuegoJsonSinJugador = json_encode($data);
         $modoJuego = $serializer->deserialize($modoJuegoJsonSinJugador, ModosJuego::class, 'json');
 
+        if (isset($data['idnummodo'])) {
+            $modoJuego->setIdnummodo($data['idnummodo']);
+        } else {
+            return new JsonResponse(["error" => "idnummodo no proporcionado"], 400);
+        }
+
         $modoJuego->setJugador($jugador);
 
         $file = $request->files->get('imagen');
@@ -59,6 +67,8 @@ class ModoDeJuegoController extends AbstractController
                 return new JsonResponse(["error" => "Error al subir la imagen"], 500);
             }
         }
+
+
 
         $entityManager->persist($modoJuego);
         $entityManager->flush();
