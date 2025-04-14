@@ -117,7 +117,7 @@ class JugadorController extends AbstractController
             return new JsonResponse(["error" => "Usuario no encontrado"], Response::HTTP_NOT_FOUND);
         }
 
-        if (!$this->comprobarContra($data['contrasena'], $jugador->getContrasena())) {
+        if ($data['contrasena'] != $jugador->getContrasena()) {
             return new JsonResponse(["error" => "Contraseña incorrecta"], Response::HTTP_UNAUTHORIZED);
         }
 
@@ -143,9 +143,36 @@ class JugadorController extends AbstractController
         return hash_equals($contraHasheada, $inputHasheada);
     }
 
-    function hashPassword($contra, $salt) {
+    private function hashPassword($contra, $salt) {
         $hashedPassword = hash("sha256", $salt . $contra, true);
         return base64_encode($hashedPassword);
+    }
+
+    /**
+     * @Route("/obtenerSalt", methods={"POST"})
+     */
+    public function obtenerSalt(Request $request, EntityManagerInterface $entityManager): JsonResponse
+    {
+        $nombre = $request->request->get('nombre');
+
+        if (!$nombre) {
+            return new JsonResponse(["error" => "Falta el nombre de usuario"], JsonResponse::HTTP_BAD_REQUEST);
+        }
+
+        $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(['nombre' => $nombre]);
+
+        if (!$jugador) {
+            return new JsonResponse(["error" => "Usuario no encontrado"], JsonResponse::HTTP_NOT_FOUND);
+        }
+
+        $parts = explode(":", $jugador->getContrasena());
+        if (count($parts) !== 2) {
+            return new JsonResponse(["error" => "Formato de contraseña inválido"], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        $salt = $parts[0]; // está en base64, ¡perfecto para enviar!
+
+        return new JsonResponse($salt, JsonResponse::HTTP_OK);
     }
 
     /**
