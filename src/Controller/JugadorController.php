@@ -121,6 +121,10 @@ class JugadorController extends AbstractController
             return new JsonResponse(["error" => "Contraseña incorrecta"], Response::HTTP_UNAUTHORIZED);
         }
 
+        if($jugador->isOnline()){
+            return new JsonResponse(["error" => "Ya hay alguien online en esa cuenta"], Response::HTTP_CONFLICT);
+        }
+
         $jugador->setOnline(true);
         $entityManager->persist($jugador);
         $entityManager->flush();
