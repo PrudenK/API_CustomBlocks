@@ -61,7 +61,10 @@ class JugadorController extends AbstractController
 
         $jugador = $serializer->deserialize($jsonContent, Jugador::class, 'json');
 
+
         $comprobarNombre = $entityManager->getRepository(Jugador::class)->findBy(['nombre' => $jugador->getNombre()]);
+
+
 
         if($comprobarNombre){
             return new JsonResponse("El jugador ya existe", Response::HTTP_CONFLICT, [], true);
@@ -99,6 +102,7 @@ class JugadorController extends AbstractController
             $entityManager->persist($nivelJugador);
         }
 
+
         $entityManager->flush();
 
         return new JsonResponse(["message" => "Jugador creado correctamente"], Response::HTTP_CREATED);
@@ -113,9 +117,9 @@ class JugadorController extends AbstractController
 
         $jugador = $entityManager->getRepository(Jugador::class)->findOneBy(['nombre' => $data['nombre']]);
 
-        if (!$jugador) {
-            return new JsonResponse(["error" => "Usuario no encontrado"], Response::HTTP_NOT_FOUND);
-        }
+            if (!$jugador) {
+                return new JsonResponse(["error" => "Usuario no encontrado"], Response::HTTP_NOT_FOUND);
+            }
 
         if ($data['contrasena'] != $jugador->getContrasena()) {
             return new JsonResponse(["error" => "Contraseña incorrecta"], Response::HTTP_UNAUTHORIZED);

@@ -9,18 +9,18 @@ CREATE DATABASE `baseCustom`;
 USE `baseCustom`;
 
 CREATE TABLE jugador (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100),
-    contrasena VARCHAR(255),
-    nivel INT,
-    fechaini DATE,
-    pais VARCHAR(100),
-    experiencia INT,
-    clan INT NULL,
-    imagen VARCHAR(255),
-    online BOOLEAN,
-    ultimaVezVisto NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (clan) REFERENCES clan(idClan) ON DELETE SET NULL
+     id INT AUTO_INCREMENT PRIMARY KEY,
+     nombre VARCHAR(100),
+     contrasena VARCHAR(255),
+     nivel INT,
+     fechaini DATE,
+     pais VARCHAR(100),
+     experiencia INT,
+     clan INT NULL,
+     imagen VARCHAR(255),
+     online BOOLEAN,
+     lastSeen TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+     FOREIGN KEY (clan) REFERENCES clan(idClan) ON DELETE SET NULL
 );
 
 CREATE TABLE suscripcion (
@@ -132,6 +132,31 @@ CREATE TABLE estaPiezas (
     FOREIGN KEY (idJugador) REFERENCES jugador(id) ON DELETE CASCADE
 );
 
+
+-- CREATE TABLE estaPiezas (
+--     idJugador INT,
+--     numO INT,         numI INT,         numZ INT,         numS INT,
+--     numT INT,         numP INT,         numJ INT,         numW INT,
+--     numTv2 INT,       numSv2 INT,       numLv2 INT,       numOv2 INT,
+--     numSv2 INT,       numB INT,         numF INT,         numC INT,
+--     numOv3 INT,       numV INT,         numIv2 INT,       numOv4 INT,
+--     numJv2 INT,       numA INT,         numYv2 INT,       numMiniO INT,
+--     numOv5 INT,       numOv6 INT,       numMiniL INT,     numTwinY INT,
+--     numPickAxe INT,   numSv3 INT,       numTwinO INT,     numHv2 INT,
+--
+--     numL INT,         numX INT,         numK INT,         numMiniI INT,
+--     numXv2 INT,       numLv3 INT,       numIv3 INT,       numMiniIv2 INT,
+--     numY INT,         numK INT,         numLv3 INT,       numMiniIv2 INT,
+--     numH INT,         numMiniI INT,     numMiniL INT,     numE INT,
+--     numMiniI INT,     numXv3 INT,       numTwinO INT,     numZv3 INT,
+--     numTwinOv2 INT,   numLadder INT,
+--
+--     total INT,
+--     PRIMARY KEY (idJugador),
+--     FOREIGN KEY (idJugador) REFERENCES jugador(id)
+-- );
+
+
 CREATE TABLE mundo (
    idMundo INT,
    imagen VARCHAR(255),
@@ -178,7 +203,6 @@ CREATE TABLE nivel_jugador (
    idJugador INT,
    mejorTiempo VARCHAR(10),
    mejorPuntuacion INT,
-   mejorLineas INT,
    completado BOOLEAN NOT NULL,
    desbloqueado BOOLEAN NOT NULL,
    numIntentos INT,
@@ -277,9 +301,9 @@ DELETE FROM suscripcion;
 
 INSERT INTO suscripcion (tipo, nombre, precio, numModos, numPartidasGuardadas, imagen)
 VALUES
-    (1, 'Plan básico', '1.99€', 3, 3, "/uploads/images/estrellas1de3.jpg"),
-    (2, 'Plan Fit me', '4.99€', 6, 6,"/uploads/images/estrellas2de3.jpg"),
-    (3, 'Plan Ultra Mega', '6.99€', 9, 9,"/uploads/images/estrellas3de3.jpg");
+    (1, 'Plan básico', '1.99€', 3, 3, "/uploads/images/estrellas1de3.png"),
+    (2, 'Plan Fit me', '4.99€', 6, 6,"/uploads/images/estrellas2de3.png"),
+    (3, 'Plan Ultra Mega', '6.99€', 9, 9,"/uploads/images/estrellas3de3.png");
 
 
 INSERT INTO mundo (idMundo, imagen)
@@ -408,4 +432,4 @@ INSERT INTO logros (nombre, descripcion, imagen)
     ("Skillsss I", "Llega al nivel 5 en una partida clásica", "/uploads/logros/lv5.png"),
     ("Skillsss II", "Llega al nivel 10 en una partida clásica", "/uploads/logros/lv10.png"),
     ("Teclado en llamas", "Consgigue 40 lineas en menos de 3 minutos en una partida clásica", "/uploads/logros/tecladoEnLLamas.png"),
-    ("Vida social", "Unete a un clan o crea uno", "/uploads/logros/clan.png"),
+    ("Vida social", "Unete a un clan o crea uno", "/uploads/logros/clan.png");

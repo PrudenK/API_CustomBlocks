@@ -149,7 +149,7 @@ class Jugador
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="last_seen", type="datetime", nullable=false, options={"default": "CURRENT_TIMESTAMP"})
+     * @ORM\Column(name="lastSeen", type="datetime", nullable=false, options={"default": "CURRENT_TIMESTAMP"})
      * @Groups("jugador")
      */
     private $lastSeen;
@@ -165,6 +165,7 @@ class Jugador
         $this->suscripciones = new \Doctrine\Common\Collections\ArrayCollection();
         $this->nivelesJugador = new \Doctrine\Common\Collections\ArrayCollection();
         $this->mundosJugador = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->lastSeen = new \DateTime();
     }
 
     public function getId(): int
